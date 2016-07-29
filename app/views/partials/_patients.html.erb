@@ -1,0 +1,14 @@
+
+<% @patients.each do |patient| -%>
+<div class="row">
+	<a href="<%= patient_path(patient) %>">
+		<div class="col-md-3" align="center">
+			<%= patient.id %>
+		</div>
+		<div class="col-md-9" align="center">
+			<%= patient.cnic %>
+		</div>
+	</a>
+</div>
+<hr>
+<% end -%>

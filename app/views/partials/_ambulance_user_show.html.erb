@@ -1,0 +1,24 @@
+<div class="ambulance_user-wrapper row">
+  <div class="ambulance_user">
+    <div class="ambulance_user-head">
+      <div class="name text-center">
+        <%= @ambulance_user.name %>
+      </div>
+    </div>
+    <div class="text-center">
+      <%= @ambulance_user.belongs_to %>
+    </div>
+    <div class="text-center">
+      <%= @ambulance_user.email %>
+    </div>
+    <div class="text-center edit-links">
+      <%= link_to "Cancel", admin_home_path %>
+      |
+      <%= link_to "Edit Ambulance User", ambulance_user_edit_path(@ambulance_user) %>
+    </div>
+
+    <div class="text-center">
+      <%= link_to "Cancel", admin_home_path %>
+    </div>
+  </div>
+</div>

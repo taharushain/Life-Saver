@@ -1,0 +1,15 @@
+<% @managers.each_slice(6) do |slice| %>
+<div class="row">
+	<% slice.each do |manager| -%>
+	<div class="col-md-2">
+		<div class="manager">
+			<div class="manager-head">
+				<div class="name">
+					<%= manager.user_name %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% end -%>
+</div>
+<% end -%>

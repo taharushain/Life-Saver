@@ -1,0 +1,22 @@
+<h3>Add Hospital Super User</h3>
+
+<%= simple_form_for @hospital_super_user, url: hospital_super_user_add_path do |f| %>
+
+<div class="form-group">
+	<%= f.input :user_name %>
+</div>
+<div class="form-group text-center">
+	<%= f.input :password %>
+</div>
+<div class="form-group text-center">
+	<%= f.input :password_confirmation %>
+</div>
+<div class="form-group text-center">
+	
+    <%= f.input :hospital_id , as: :radio_buttons, collection: Hospital.all, :required => true, wrapper: :vertical_radio_and_checkboxes %>
+
+</div>
+<div class="form-group text-center">
+	<%= f.button :submit, class: 'btn-success' %>
+</div>
+<% end %>

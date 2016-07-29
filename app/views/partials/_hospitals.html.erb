@@ -1,0 +1,18 @@
+<% @hospitals.each_slice(4) do |slice| %>
+<div class="row">
+	<% slice.each do |hospital| -%>
+	<div class="col-md-3">
+		<div class="hospital">
+			<div class="hospital-head">
+				<div class="name">
+					<%= hospital.name %>
+				</div>
+			</div>
+			<div class="image center-block">
+				<%= link_to (image_tag hospital.logo.url(:medium), class:'img-responsive'), hospital_path(hospital) %>
+			</div>
+		</div>
+	</div>
+	<% end -%>
+</div>
+<% end -%>

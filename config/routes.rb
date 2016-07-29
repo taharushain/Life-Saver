@@ -1,4 +1,69 @@
 Rails.application.routes.draw do
+
+
+  get "/admins/log_out" => "admin_sessions#destroy", :as => "log_out"
+  get "/admins/log_in" => "admin_sessions#new", :as => "log_in"
+  get "/admins/sign_up" => "admins#new", :as => "sign_up"
+  get "/admins/home" => "hospitals#index", :as => "admin_home"
+
+  get "/admins/ambulance_users" => "ambulance_users#index", :as => :ambulance_users
+  get "/admins/ambulance_users/add" => "ambulance_users#new", :as => :ambulance_user_add
+  post "/admins/ambulance_users" => "ambulance_users#create"
+  get "/admins/ambulance_users/:id" => "ambulance_users#show", :as => :ambulance_user
+  get "/admins/ambulance_users/:id/edit" => "ambulance_users#edit", :as => :ambulance_user_edit
+  patch "/admins/ambulance_users/:id/" => "ambulance_users#update"
+  put "/admins/ambulance_users/:id/" => "ambulance_users#update"
+  delete "/admins/ambulance_users/:id/" => "ambulance_users#destroy"
+
+
+  get "/hospital_super_users/log_out" => "hospital_super_user_sessions#destroy", :as => "hospital_super_user_log_out"
+  get "/hospital_super_users/log_in" => "hospital_super_user_sessions#new", :as => "hospital_super_user_log_in"
+  get "/admins/hospital_super_users/add" => "hospital_super_users#new", :as => :hospital_super_user_add
+  post "/admins/hospital_super_users/add" => "hospital_super_users#create"
+  get "/super_users/home" => "hospital_super_users#index", :as => "hospital_super_user_home"
+
+  get "/log_out" => "manager_sessions#destroy", :as => "manager_log_out"
+  get "/log_in" => "manager_sessions#new", :as => "manager_log_in"
+  get "/super_users/managers/add" => "managers#new", :as => :manager_add
+  post "/super_users/managers/add" => "managers#create"
+  get "/" => "managers#index", :as => "root"
+
+
+  get "/super_users/beds" => "beds#index", :as => :beds
+  get "/super_users/beds/add" => "beds#new", :as => :bed_add
+  post "/super_users/beds/" => "beds#create"
+  # get "/super_users/beds/:id" => "beds#show", :as => :bed
+  # get "/super_users/beds/:id/edit" => "beds#edit", :as => :bed_edit
+  # patch "/super_users/beds/:id/" => "beds#update"
+  # put "/super_users/beds/:id/" => "beds#update"
+  # delete "/super_users/beds/:id/" => "beds#destroy"
+
+  get "/requests" => "requests#index", :as => :requests
+  get "/requests/:id" => "requests#show", :as => :request_show
+  get "/history" => "requests#history", :as => :request_history
+  patch "/requests/:id" => "requests#update"
+  
+
+  # get '/' => 'hospitals#home', as: :root
+  resources :hospitals, :path => "/admin/hospitals"
+  resources :patients, :path => "/admin/patients"
+
+  resources :admins
+  resources :admin_sessions
+
+  resources :hospital_super_users
+  resources :hospital_super_user_sessions
+
+  resources :managers
+  resources :manager_sessions
+  
+
+  # resources :hospital_super_users
+  # resources :hospital_super_user_sessions
+  
+  # resources :hospitals  
+  # root 'home#index'  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

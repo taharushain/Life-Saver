@@ -1,0 +1,12 @@
+<div class="text-center">
+  <%= image_tag @hospital.logo.url(:medium) %>
+</div>
+<div class="form-wrapper">
+  <%= render 'partials/hospitalform'  %>
+</div>
+
+<div class="text-center edit-links">
+  <%= link_to "Delete hospital", hospital_path(@hospital), method: :delete, data: { confirm: "Are you sure you want to delete this hospital?" } %>
+  |
+  <%= link_to "cancel", admin_home_path %>
+</div>

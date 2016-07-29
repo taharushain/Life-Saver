@@ -1,0 +1,36 @@
+<% if @request.accepted==false %>
+<div>
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h3>
+				Please accept the request
+			</h3>
+		</div>	
+	</div>
+	<div class="text-center"> Request # <%=@request.id%> </div> 
+	<%= simple_form_for @request, url: request_show_path do |f| %>
+
+	<div class="form-group text-center">
+
+		<%= f.input :bed_id , as: :radio_buttons, collection: Bed.where(:hospital_id => @request.hospital_id), :required => true, wrapper: :vertical_radio_and_checkboxes %>
+
+	</div>
+	<div class="form-group text-center">
+		<%= f.button :submit, class: 'btn-success' %>
+	</div>
+	<% end %>
+</div>
+<% elsif( @request.accepted==true  && @request.data_received == false)%>
+<br>
+<br>
+<h3 class="text-center">Waiting for Patient Data</h3>
+<div class="row">
+	
+</div>
+<% else %>
+<div class="row">
+	
+
+
+</div>
+<% end %>

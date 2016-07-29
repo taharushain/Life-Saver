@@ -1,0 +1,22 @@
+<div class="patients-wrapper row">
+  <div class="patient" align="center">
+    <div class="patient-head">
+      <div class="name">
+        <%= @patient.id %>
+      </div>
+    </div>
+    <div class="cnic center-block">
+      <%= @patient.cnic %>
+    </div>
+    
+    <div class="text-center edit-links">
+      <%= link_to "Cancel", admin_home_path %>
+      |
+      <%= link_to "Edit patient", edit_patient_path(@patient) %>
+    </div>
+
+    <div class="text-center">
+      <%= link_to "Cancel", admin_home_path %>
+    </div>
+  </div>
+</div>

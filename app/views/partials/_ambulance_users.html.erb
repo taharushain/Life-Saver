@@ -1,0 +1,16 @@
+<% @ambulance_users.each do |ambulance_user| -%>
+<div class="row">
+	<a href="<%= ambulance_user_path(ambulance_user) %>">
+		<div class="col-md-4" align="center">
+			<%= ambulance_user.email %>
+		</div>
+		<div class="col-md-4" align="center">
+			<%= ambulance_user.name %>
+		</div>
+		<div class="col-md-4" align="center">
+			<%= ambulance_user.belongs_to %>
+		</div>
+	</a>
+</div>
+<hr>
+<% end -%>

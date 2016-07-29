@@ -1,0 +1,32 @@
+<div class="hospitals-wrapper row">
+  <div class="hospital">
+    <div class="hospital-head">
+      <div class="row name text-center">
+        <%= @hospital.name %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="image center-block">
+          <%= image_tag(@hospital.logo.url(:medium), :class => "img-responsive") %>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <% @super_users = HospitalSuperUser.where(:hospital_id => @hospital.id) %>
+    <% if @super_users.count>=1 %>
+    <h3 class="text-center">Super users</h3>      
+    <% end %> 
+    <% @super_users.each do |super_user| %>
+    <div class="row text-center">
+      <%= super_user.user_name %>
+    </div>
+    <hr>
+    <% end %>    
+    <div class="text-center edit-links">
+      <%= link_to "Cancel", admin_home_path %>
+      |
+      <%= link_to "Edit hospital", edit_hospital_path(@hospital) %>
+    </div>
+  </div>
+</div>
