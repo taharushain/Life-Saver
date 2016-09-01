@@ -1,4 +1,4 @@
-class HospitalSuperUser < ActiveRecord::Base
+class HospitalSuperUser < ApplicationRecord
 	# attr_accessible :user_name, :password, :password_confirmation
 	belongs_to :hospital
 	attr_accessor :password

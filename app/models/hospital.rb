@@ -1,4 +1,4 @@
-class Hospital < ActiveRecord::Base
+class Hospital < ApplicationRecord
 	has_many :hospital_super_users
 	has_many :managers
 	has_many :beds
