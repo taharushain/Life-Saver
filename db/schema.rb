@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20160811105355) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admins", force: :cascade do |t|
     t.string   "email"
     t.string   "password_hash"
@@ -30,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160811105355) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.string   "authentication_token", default: ""
-    t.index ["authentication_token"], name: "index_ambulance_users_on_authentication_token", unique: true
+    t.index ["authentication_token"], name: "index_ambulance_users_on_authentication_token", unique: true, using: :btree
   end
 
   create_table "beds", force: :cascade do |t|
@@ -39,7 +42,7 @@ ActiveRecord::Schema.define(version: 20160811105355) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "vacant",      default: true
-    t.index ["hospital_id"], name: "index_beds_on_hospital_id"
+    t.index ["hospital_id"], name: "index_beds_on_hospital_id", using: :btree
   end
 
   create_table "hospital_super_users", force: :cascade do |t|
@@ -49,7 +52,7 @@ ActiveRecord::Schema.define(version: 20160811105355) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "hospital_id"
-    t.index ["hospital_id"], name: "index_hospital_super_users_on_hospital_id"
+    t.index ["hospital_id"], name: "index_hospital_super_users_on_hospital_id", using: :btree
   end
 
   create_table "hospitals", force: :cascade do |t|
@@ -69,25 +72,25 @@ ActiveRecord::Schema.define(version: 20160811105355) do
     t.integer  "hospital_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["hospital_id"], name: "index_managers_on_hospital_id"
+    t.index ["hospital_id"], name: "index_managers_on_hospital_id", using: :btree
   end
 
   create_table "patients", force: :cascade do |t|
-    t.integer  "cnic",       limit: 8, null: false
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.index ["cnic"], name: "index_patients_on_cnic", unique: true
+    t.bigint   "cnic",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cnic"], name: "index_patients_on_cnic", unique: true, using: :btree
   end
 
   create_table "request_details", force: :cascade do |t|
     t.string   "gender"
     t.string   "age"
     t.string   "blood_pressure"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "request_id"
-    t.integer  "cnic",           limit: 8
-    t.index ["request_id"], name: "index_request_details_on_request_id"
+    t.bigint   "cnic"
+    t.index ["request_id"], name: "index_request_details_on_request_id", using: :btree
   end
 
   create_table "requests", force: :cascade do |t|
@@ -99,9 +102,9 @@ ActiveRecord::Schema.define(version: 20160811105355) do
     t.boolean  "completed",         default: false
     t.boolean  "data_received",     default: false
     t.integer  "bed_id"
-    t.index ["ambulance_user_id"], name: "index_requests_on_ambulance_user_id"
-    t.index ["bed_id"], name: "index_requests_on_bed_id"
-    t.index ["hospital_id"], name: "index_requests_on_hospital_id"
+    t.index ["ambulance_user_id"], name: "index_requests_on_ambulance_user_id", using: :btree
+    t.index ["bed_id"], name: "index_requests_on_bed_id", using: :btree
+    t.index ["hospital_id"], name: "index_requests_on_hospital_id", using: :btree
   end
 
 end
