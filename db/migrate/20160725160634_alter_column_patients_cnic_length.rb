@@ -6,7 +6,7 @@ class AlterColumnPatientsCnicLength < ActiveRecord::Migration
   end
   def self.down
     change_table :patients do |t|
-      t.change :cnic, :string
+      t.change :cnic, :integer
     end
   end
 end
