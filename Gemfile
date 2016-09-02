@@ -10,7 +10,7 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem 'active_model_serializers'
 # gem 'responders', '~> 2.0'
 
-gem 'redis-throttle', git: 'git://github.com/lelylan/redis-throttle.git'
+# gem 'redis-throttle', git: 'git://github.com/lelylan/redis-throttle.git'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # gem 'rails', '4.2.7'

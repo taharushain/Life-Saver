@@ -1,7 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
-require 'rack/redis_throttle'
+# require 'rack/redis_throttle'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -12,7 +12,7 @@ module LifeSaver
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.middleware.use Rack::RedisThrottle::Daily, max: 100000
+    # config.middleware.use Rack::RedisThrottle::Daily, max: 100000
 
 end
 end
