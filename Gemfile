@@ -7,7 +7,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
 gem "paperclip", "~> 5.0.0"
 gem "bcrypt-ruby", :require => "bcrypt"
-gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
+gem 'active_model_serializers'
 # gem 'responders', '~> 2.0'
 
 gem 'redis-throttle', git: 'git://github.com/lelylan/redis-throttle.git'
