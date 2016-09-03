@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '>= 5.0.0.rc2', '< 5.1'
 
+# gem 'activerecord-session_store'
+
 gem "font-awesome-rails"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
