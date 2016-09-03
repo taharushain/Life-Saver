@@ -8,15 +8,15 @@ development:
   encoding: unicode
   host: localhost
   pool: 5
-  database: lifesaver
-  username: lifesaver_user
+  database: myapp_development
+  username: project_v_user
   password: password
 
 test:
   adapter: postgresql
   encoding: unicode
   host: localhost
-  database: lifesaver
+  database: myapp_test
   pool: 5
-  username: lifesaver_user
+  username: project_v_user
   password: password
