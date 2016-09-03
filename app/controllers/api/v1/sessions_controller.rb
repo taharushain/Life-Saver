@@ -16,7 +16,7 @@ class Api::V1::SessionsController < Api::V1::BaseController
     if !ambulance_user.present? || ambulance_user == nil
       render :json => nil, :status => 404
     else
-      ambulance_user.generate_authentication_token!
+      ambulance_user.generate_authentication_token
       render(
         json: Api::V1::SessionSerializer.new(ambulance_user).to_json,
         status: 201
@@ -29,7 +29,7 @@ class Api::V1::SessionsController < Api::V1::BaseController
 
   def destroy
     ambulance_user = AmbulanceUser.find_by(authentication_token: destroy_params[:authentication_token])
-    ambulance_user.generate_authentication_token!
+    ambulance_user.generate_authentication_token
     ambulance_user.save
     head 204
   end
