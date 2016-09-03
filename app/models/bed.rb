@@ -1,4 +1,4 @@
-class Bed < ActiveRecord::Base
+class Bed < ApplicationRecord
   belongs_to :hospital
 
   validates :name, presence: true
