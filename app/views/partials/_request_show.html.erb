@@ -20,43 +20,17 @@
 	</div>
 	<% end %>
 </div>
-
-
-
 <% elsif( @request.accepted==true  && @request.data_received == false)%>
 <br>
 <br>
 <h3 class="text-center">Waiting for Patient Data</h3>
-
-
-
-
+<div class="row">
+	
+</div>
 <% else %>
 <div class="row">
-	<div class="col-md-6 text-center"><%= @request_detail.id %></div>
-	<div class="col-md-6 text-center"><%= @request_detail.age %></div>	
-</div>
-
-<div class="row">
-	<div class="col-md-6 text-center"><%= @request_detail.gender %></div>
-	<div class="col-md-6 text-center"><%= @request_detail.blood_pressure %></div>	
-</div>
-
-<div class="row">
-
-<%= simple_form_for @request_detail, 
-    :url => url_for(:action => 'update_details', :controller => 'requests'),
-    :method => 'put' do |f| %>	
+	
 
 
-	<div class="col-md-6 form-group text-center">
-
-		<%= f.input :cnic  %>
-
-	</div>
-	<div class=" col-md-6 form-group text-center">
-		<%= f.button :submit, class: 'btn-success' %>
-	</div>
-	<% end %>
 </div>
 <% end %>

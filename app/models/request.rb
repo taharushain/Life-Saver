@@ -1,3 +1,2 @@
-class Request < ApplicationRecord
-	has_one :request_detail
+class Request < ActiveRecord::Base
 end

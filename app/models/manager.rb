@@ -1,4 +1,4 @@
-class Manager < ApplicationRecord
+class Manager < ActiveRecord::Base
 	belongs_to :hospital
 
 	attr_accessor :password

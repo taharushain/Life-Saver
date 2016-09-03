@@ -42,7 +42,6 @@ Rails.application.routes.draw do
   get "/requests/:id" => "requests#show", :as => :request_show
   get "/history" => "requests#history", :as => :request_history
   patch "/requests/:id" => "requests#update"
-  put "/requests/:id" => "requests#update_details"
   
 
   # get '/' => 'hospitals#home', as: :root
@@ -58,16 +57,6 @@ Rails.application.routes.draw do
   resources :managers
   resources :manager_sessions
   
-  
-  # API routes path
-  namespace :api, defaults: { format: :json } do
-    namespace :v1 do
-      resources :sessions, only: [:create, :destroy]
-      resources :ambulance_users, only: [:show]
-      resources :requests, only: [:index, :create, :show, :update, :destroy]
-      resources :request_details, only: [:index, :create, :show, :update, :destroy]
-    end
-  end  
 
   # resources :hospital_super_users
   # resources :hospital_super_user_sessions
