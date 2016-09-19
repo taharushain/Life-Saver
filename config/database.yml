@@ -20,3 +20,13 @@ test:
   pool: 5
   username: project_v_user
   password: password
+
+  production:
+  <<: *default
+  host: localhost
+  adapter: postgresql
+  encoding: utf8
+  database: lifesaver
+  pool: 5
+  username: <%= ENV['APPNAME_DATABASE_USER'] %>
+  password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
