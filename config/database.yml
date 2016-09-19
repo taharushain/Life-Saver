@@ -1,7 +1,7 @@
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+adapter: postgresql
+encoding: unicode
+pool: 5
 
 development:
   adapter: postgresql
@@ -21,7 +21,7 @@ test:
   username: project_v_user
   password: password
 
-  production:
+production:
   <<: *default
   host: localhost
   adapter: postgresql
