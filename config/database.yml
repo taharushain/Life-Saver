@@ -30,3 +30,4 @@ test:
   pool: 5
   username: <%= ENV['APPNAME_DATABASE_USER'] %>
   password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
+  

@@ -124,6 +124,7 @@ GEM
       mimemagic (~> 0.3.0)
     pg (0.18.4)
     pkg-config (1.1.7)
+    puma (3.6.0)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -211,6 +212,7 @@ DEPENDENCIES
   jquery-rails
   paperclip (~> 5.0.0)
   pg
+  puma
   rails (>= 5.0.0.rc2, < 5.1)
   redis-throttle!
   sass-rails (~> 5.0)
