@@ -1,0 +1,400 @@
+=== puma startup: 2016-09-19 22:01:10 +0500 ===
+Exiting
+=== puma startup: 2016-09-19 22:02:56 +0500 ===
+[9523] * Starting control server on unix:///tmp/puma-status-1474304576578-9523
+[9523] - Worker 0 (pid: 9557) booted, phase: 0
+Started GET "/" for 127.0.0.1 at 2016-09-19 22:03:04 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ManagersController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/managers_controller.rb:2)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ManagersController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/managers_controller.rb:3)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ManagersController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/managers_controller.rb:4)
+Processing by ManagersController#index as HTML
+Redirected to http://localhost:3000/log_in
+Filter chain halted as :authenticate_manager_user rendered or redirected
+Completed 302 Found in 92ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/log_in" for 127.0.0.1 at 2016-09-19 22:03:05 +0500
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ManagerSessionsController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/manager_sessions_controller.rb:2)
+Processing by ManagerSessionsController#new as HTML
+  Rendering manager_sessions/new.html.erb within layouts/application
+  Rendered partials/_alerts.html.erb (3.1ms)
+  Rendered manager_sessions/new.html.erb within layouts/application (48.7ms)
+  Rendered partials/_stylesheets.html.erb (1.4ms)
+  Rendered partials/_scripts.html.erb (1.2ms)
+Completed 200 OK in 2558ms (Views: 2540.9ms | ActiveRecord: 0.0ms)
+
+
+[9523] - Gracefully shutting down workers...
+[9523] === puma shutdown: 2016-09-19 22:03:23 +0500 ===
+[9523] - Goodbye!
+Exiting
+=== puma startup: 2016-09-19 23:28:17 +0500 ===
+[4971] * Starting control server on unix:///tmp/puma-status-1474309697780-4971
+[4971] - Worker 0 (pid: 5009) booted, phase: 0
+Started GET "/admins/log_in" for 127.0.0.1 at 2016-09-19 23:29:13 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (53.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:AdminSessionsController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/admin_sessions_controller.rb:3)
+Processing by AdminSessionsController#new as HTML
+Redirected to http://localhost:3000/admins/home
+Filter chain halted as :save_admin_login_state rendered or redirected
+Completed 302 Found in 117ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/home" for 127.0.0.1 at 2016-09-19 23:29:14 +0500
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:HospitalsController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/hospitals_controller.rb:3)
+Processing by HospitalsController#index as HTML
+  [1m[36mAdmin Load (13.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 224ms (ActiveRecord: 143.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Admin with 'id'=1):
+  
+app/controllers/application_controller.rb:58:in `authenticate_admin_user'
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (19.2ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.7ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (168.9ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from const_missing at /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/http/mime_type.rb:52)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (2.2ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (2.6ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.0ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from const_missing at /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/http/mime_type.rb:52)
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (266.5ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.8ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.9ms)
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (410.0ms)
+Started GET "/admins/home" for 127.0.0.1 at 2016-09-19 23:32:49 +0500
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:HospitalsController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/hospitals_controller.rb:3)
+Processing by HospitalsController#index as HTML
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 41ms (ActiveRecord: 15.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Admin with 'id'=1):
+  
+app/controllers/application_controller.rb:62:in `authenticate_admin_user'
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (20.3ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.9ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.4ms)
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (116.9ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from const_missing at /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/http/mime_type.rb:52)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.8ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.6ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from const_missing at /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/http/mime_type.rb:52)
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (109.7ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.3ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.4ms)
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (208.9ms)
+[4971] - Gracefully shutting down workers...
+[4971] === puma shutdown: 2016-09-19 23:33:03 +0500 ===
+[4971] - Goodbye!
+Exiting
+=== puma startup: 2016-09-19 23:33:12 +0500 ===
+[5269] * Starting control server on unix:///tmp/puma-status-1474309992486-5269
+[5269] - Worker 0 (pid: 5305) booted, phase: 0
+Started GET "/admins/home" for 127.0.0.1 at 2016-09-19 23:33:39 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:HospitalsController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/hospitals_controller.rb:3)
+Processing by HospitalsController#index as HTML
+  [1m[36mAdmin Load (3.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 128ms (ActiveRecord: 20.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Admin with 'id'=1):
+  
+app/controllers/application_controller.rb:58:in `authenticate_admin_user'
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (20.9ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.1ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.4ms)
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (134.2ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from const_missing at /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/http/mime_type.rb:52)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.7ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.6ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from const_missing at /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/http/mime_type.rb:52)
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (124.7ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (2.1ms)
+  Rendering /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.4ms)
+  Rendered /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (220.3ms)
+Started GET "/admins/home" for 127.0.0.1 at 2016-09-19 23:35:03 +0500
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:HospitalsController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/hospitals_controller.rb:3)
+Processing by HospitalsController#index as HTML
+Redirected to http://localhost:3000/admins/log_in
+Filter chain halted as :authenticate_admin_user rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/log_in" for 127.0.0.1 at 2016-09-19 23:35:03 +0500
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:AdminSessionsController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/admin_sessions_controller.rb:3)
+Processing by AdminSessionsController#new as HTML
+  Rendering admin_sessions/new.html.erb within layouts/application
+  Rendered partials/_alerts.html.erb (2.7ms)
+  Rendered admin_sessions/new.html.erb within layouts/application (20.4ms)
+  Rendered partials/_stylesheets.html.erb (1.3ms)
+  Rendered partials/_scripts.html.erb (1.0ms)
+Completed 200 OK in 2180ms (Views: 2165.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_up" for 127.0.0.1 at 2016-09-19 23:35:28 +0500
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:AdminsController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/admins_controller.rb:3)
+Processing by AdminsController#new as HTML
+  Rendering admins/new.html.erb within layouts/application
+  Rendered partials/_alerts.html.erb (1.8ms)
+  Rendered admins/new.html.erb within layouts/application (309.7ms)
+  Rendered partials/_stylesheets.html.erb (1.6ms)
+  Rendered partials/_scripts.html.erb (2.1ms)
+Completed 200 OK in 695ms (Views: 619.6ms | ActiveRecord: 15.2ms)
+
+
+Started POST "/admins" for 127.0.0.1 at 2016-09-19 23:35:45 +0500
+Processing by AdminsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"em763NXt2snZR88qSoEtHTisvLODezp13TYWvM9/XJ5R/Rh+Fv+QJ6blZtKiOJ0LF7K9hy0s4efykzo3pdJwPQ==", "admin"=>{"email"=>"admin@a.com", "name"=>"A for Admin", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Admin"}
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdmin Exists (4.3ms)[0m  [1m[34mSELECT  1 AS one FROM "admins" WHERE "admins"."email" = $1 LIMIT $2[0m  [["email", "admin@a.com"], ["LIMIT", 1]]
+  [1m[35mSQL (14.5ms)[0m  [1m[32mINSERT INTO "admins" ("email", "password_hash", "password_salt", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "admin@a.com"], ["password_hash", "$2a$10$3DfFEIPexuyEE604EFg2Genf1ccKuskIDYmTPyT2vEfvT9R1.8FDW"], ["password_salt", "$2a$10$3DfFEIPexuyEE604EFg2Ge"], ["name", "A for Admin"], ["created_at", 2016-09-19 18:35:45 UTC], ["updated_at", 2016-09-19 18:35:45 UTC]]
+  [1m[35m (14.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 533ms (ActiveRecord: 33.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-09-19 23:35:45 +0500
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ManagersController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/managers_controller.rb:2)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ManagersController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/managers_controller.rb:3)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ManagersController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/managers_controller.rb:4)
+Processing by ManagersController#index as HTML
+Redirected to http://localhost:3000/log_in
+Filter chain halted as :authenticate_manager_user rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/log_in" for 127.0.0.1 at 2016-09-19 23:35:45 +0500
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ManagerSessionsController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/manager_sessions_controller.rb:2)
+Processing by ManagerSessionsController#new as HTML
+  Rendering manager_sessions/new.html.erb within layouts/application
+  Rendered partials/_alerts.html.erb (2.7ms)
+  Rendered manager_sessions/new.html.erb within layouts/application (11.1ms)
+  Rendered partials/_stylesheets.html.erb (1.2ms)
+  Rendered partials/_scripts.html.erb (1.0ms)
+Completed 200 OK in 338ms (Views: 321.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/manager_sessions" for 127.0.0.1 at 2016-09-19 23:36:08 +0500
+Processing by ManagerSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fmh6sT1JBRfhdHHSwI6KEGXFY7HM4aXaLqqG7Ev5akNV+5gT/ltP+Z7W2CooNzoGSttihWK2fkgBD6pnIVRG4A==", "user_name"=>"admin@a.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mManager Load (14.0ms)[0m  [1m[34mSELECT  "managers".* FROM "managers" WHERE "managers"."user_name" = $1 LIMIT $2[0m  [["user_name", "admin@a.com"], ["LIMIT", 1]]
+  Rendering manager_sessions/new.html.erb within layouts/application
+  Rendered partials/_alerts.html.erb (4.0ms)
+  Rendered manager_sessions/new.html.erb within layouts/application (13.1ms)
+  Rendered partials/_stylesheets.html.erb (1.2ms)
+  Rendered partials/_scripts.html.erb (1.4ms)
+Completed 200 OK in 446ms (Views: 318.6ms | ActiveRecord: 26.3ms)
+
+
+Started POST "/manager_sessions" for 127.0.0.1 at 2016-09-19 23:36:15 +0500
+Processing by ManagerSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TGEg5OVvMylgDVXcaS0GDcCJZanc323ajFsp5MrfAt1n8sJGJn15xx+v/CSBlLYb75dknXKItkij/gVvoHIufg==", "user_name"=>"admin", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mManager Load (2.1ms)[0m  [1m[34mSELECT  "managers".* FROM "managers" WHERE "managers"."user_name" = $1 LIMIT $2[0m  [["user_name", "admin"], ["LIMIT", 1]]
+  Rendering manager_sessions/new.html.erb within layouts/application
+  Rendered partials/_alerts.html.erb (3.3ms)
+  Rendered manager_sessions/new.html.erb within layouts/application (13.6ms)
+  Rendered partials/_stylesheets.html.erb (1.5ms)
+  Rendered partials/_scripts.html.erb (1.2ms)
+Completed 200 OK in 339ms (Views: 327.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admins/home" for 127.0.0.1 at 2016-09-19 23:36:23 +0500
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:HospitalsController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/hospitals_controller.rb:3)
+Processing by HospitalsController#index as HTML
+Redirected to http://localhost:3000/admins/log_in
+Filter chain halted as :authenticate_admin_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/log_in" for 127.0.0.1 at 2016-09-19 23:36:23 +0500
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:AdminSessionsController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/admin_sessions_controller.rb:3)
+Processing by AdminSessionsController#new as HTML
+  Rendering admin_sessions/new.html.erb within layouts/application
+  Rendered partials/_alerts.html.erb (0.3ms)
+  Rendered admin_sessions/new.html.erb within layouts/application (1.9ms)
+  Rendered partials/_stylesheets.html.erb (1.0ms)
+  Rendered partials/_scripts.html.erb (1.0ms)
+Completed 200 OK in 92ms (Views: 90.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin_sessions" for 127.0.0.1 at 2016-09-19 23:36:29 +0500
+Processing by AdminSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n3icaaXRLKE3gK6k2b/Kq8720oGQmEIt9oQenyDSpeS0637LZsNmT0giB1wxBnq94ejTtT7Pmb/ZITIUSn+JRw==", "email"=>"admin@a.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mAdmin Load (4.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = $1 LIMIT $2[0m  [["email", "admin@a.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/admins/home
+Completed 302 Found in 446ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/admins/home" for 127.0.0.1 at 2016-09-19 23:36:30 +0500
+Processing by HospitalsController#index as HTML
+  [1m[36mAdmin Load (1.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering hospitals/index.html.erb within layouts/application
+  Rendered partials/_admin_nav.html.erb (6.2ms)
+  Rendered partials/_alerts.html.erb (2.2ms)
+  [1m[35m (17.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "hospitals"[0m
+  [1m[36mHospital Load (1.4ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals"[0m
+  Rendered partials/_hospitals.html.erb (42.3ms)
+  Rendered hospitals/index.html.erb within layouts/application (106.3ms)
+  Rendered partials/_stylesheets.html.erb (1.4ms)
+  Rendered partials/_scripts.html.erb (1.0ms)
+Completed 200 OK in 537ms (Views: 406.0ms | ActiveRecord: 28.3ms)
+
+
+Started GET "/admins/ambulance_users/add" for 127.0.0.1 at 2016-09-19 23:36:36 +0500
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:AmbulanceUsersController> at /home/trushain/Desktop/ruby/LifeSaver/app/controllers/ambulance_users_controller.rb:2)
+Processing by AmbulanceUsersController#new as HTML
+  [1m[36mAdmin Load (1.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering ambulance_users/new.html.erb within layouts/application
+  Rendered partials/_admin_nav.html.erb (1.9ms)
+  Rendered partials/_alerts.html.erb (0.7ms)
+  Rendered partials/_ambulance_user_add.html.erb (15.8ms)
+  Rendered ambulance_users/new.html.erb within layouts/application (30.9ms)
+  Rendered partials/_stylesheets.html.erb (1.3ms)
+  Rendered partials/_scripts.html.erb (1.0ms)
+Completed 200 OK in 287ms (Views: 158.9ms | ActiveRecord: 38.0ms)
+
+
+Started POST "/admins/ambulance_users" for 127.0.0.1 at 2016-09-19 23:36:50 +0500
+Processing by AmbulanceUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RD7i3x5whvNjtoWAJCUieHPSg5fwTC4YVU2qhoWRCZdvrQB93WLMHRwULHjMnJJuXMyCo14b9Yp66IYN7zwlNA==", "ambulance_user"=>{"email"=>"a@a.com", "name"=>"A for Apple", "belongs_to"=>"ABC", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Ambulance user"}
+  [1m[36mAdmin Load (3.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAmbulanceUser Exists (14.6ms)[0m  [1m[34mSELECT  1 AS one FROM "ambulance_users" WHERE "ambulance_users"."email" = $1 LIMIT $2[0m  [["email", "a@a.com"], ["LIMIT", 1]]
+  [1m[36mAmbulanceUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "ambulance_users" WHERE "ambulance_users"."authentication_token" = $1 LIMIT $2[0m  [["authentication_token", ""], ["LIMIT", 1]]
+  [1m[36mAmbulanceUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "ambulance_users" WHERE LOWER("ambulance_users"."email") = LOWER($1) LIMIT $2[0m  [["email", "a@a.com"], ["LIMIT", 1]]
+  [1m[36mAmbulanceUser Load (1.3ms)[0m  [1m[34mSELECT  "ambulance_users".* FROM "ambulance_users" WHERE "ambulance_users"."authentication_token" = $1 LIMIT $2[0m  [["authentication_token", "1x2d303f4ia0WvfuM1VyzfXUFCIGFRahPT9WbvPp7YHX4AK1RwkGUViJTDP9Ww+TlF0s5abF486s76ensu4mCQ=="], ["LIMIT", 1]]
+  [1m[35mSQL (11.6ms)[0m  [1m[32mINSERT INTO "ambulance_users" ("email", "password_hash", "password_salt", "name", "belongs_to", "created_at", "updated_at", "authentication_token") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "a@a.com"], ["password_hash", "$2a$10$MAqfJ8Y7cW5uDh53wgJ5iOVUVWmYH5VCPftbs0m3ovXCIgVK5emQC"], ["password_salt", "$2a$10$MAqfJ8Y7cW5uDh53wgJ5iO"], ["name", "A for Apple"], ["belongs_to", "ABC"], ["created_at", 2016-09-19 18:36:51 UTC], ["updated_at", 2016-09-19 18:36:51 UTC], ["authentication_token", "1x2d303f4ia0WvfuM1VyzfXUFCIGFRahPT9WbvPp7YHX4AK1RwkGUViJTDP9Ww+TlF0s5abF486s76ensu4mCQ=="]]
+  [1m[35m (13.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admins/home
+Completed 302 Found in 570ms (ActiveRecord: 93.0ms)
+
+
+Started GET "/admins/home" for 127.0.0.1 at 2016-09-19 23:36:51 +0500
+Processing by HospitalsController#index as HTML
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering hospitals/index.html.erb within layouts/application
+  Rendered partials/_admin_nav.html.erb (6.0ms)
+  Rendered partials/_alerts.html.erb (2.5ms)
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "hospitals"[0m
+  [1m[36mHospital Load (1.3ms)[0m  [1m[34mSELECT "hospitals".* FROM "hospitals"[0m
+  Rendered partials/_hospitals.html.erb (11.2ms)
+  Rendered hospitals/index.html.erb within layouts/application (30.0ms)
+  Rendered partials/_stylesheets.html.erb (1.3ms)
+  Rendered partials/_scripts.html.erb (1.3ms)
+Completed 200 OK in 346ms (Views: 331.3ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/api/v1/sessions/?email=x@x.com&password=[FILTERED]" for 127.0.0.1 at 2016-09-19 23:49:04 +0500
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"x@x.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Unpermitted parameter: format
+Unpermitted parameter: format
+  [1m[36mAmbulanceUser Load (45.4ms)[0m  [1m[34mSELECT  "ambulance_users".* FROM "ambulance_users" WHERE "ambulance_users"."email" = $1 LIMIT $2[0m  [["email", "x@x.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Class (9.11ms)
+Completed 404 Not Found in 178ms (Views: 121.6ms | ActiveRecord: 45.4ms)
+
+
+Started POST "/api/v1/sessions/?email=x@x.com&password=[FILTERED]" for 127.0.0.1 at 2016-09-19 23:49:31 +0500
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"x@x.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Unpermitted parameter: format
+Unpermitted parameter: format
+  [1m[36mAmbulanceUser Load (1.8ms)[0m  [1m[34mSELECT  "ambulance_users".* FROM "ambulance_users" WHERE "ambulance_users"."email" = $1 LIMIT $2[0m  [["email", "x@x.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Class (0.29ms)
+Completed 404 Not Found in 15ms (Views: 2.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admins/ambulance_users" for 127.0.0.1 at 2016-09-19 23:49:42 +0500
+Processing by AmbulanceUsersController#index as HTML
+  [1m[36mAdmin Load (2.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering ambulance_users/index.html.erb within layouts/application
+  Rendered partials/_admin_nav.html.erb (20.6ms)
+  Rendered partials/_alerts.html.erb (2.4ms)
+  [1m[36mAmbulanceUser Load (2.1ms)[0m  [1m[34mSELECT "ambulance_users".* FROM "ambulance_users"[0m
+  Rendered partials/_ambulance_users.html.erb (8.2ms)
+  Rendered ambulance_users/index.html.erb within layouts/application (496.1ms)
+  Rendered partials/_stylesheets.html.erb (1.4ms)
+  Rendered partials/_scripts.html.erb (1.1ms)
+Completed 200 OK in 5521ms (Views: 4726.4ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/api/v1/sessions/?email=a@a.com&password=[FILTERED]" for 127.0.0.1 at 2016-09-19 23:49:58 +0500
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"a@a.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Unpermitted parameter: format
+Unpermitted parameter: format
+  [1m[36mAmbulanceUser Load (1.6ms)[0m  [1m[34mSELECT  "ambulance_users".* FROM "ambulance_users" WHERE "ambulance_users"."email" = $1 LIMIT $2[0m  [["email", "a@a.com"], ["LIMIT", 1]]
+  [1m[36mAmbulanceUser Load (1.5ms)[0m  [1m[34mSELECT  "ambulance_users".* FROM "ambulance_users" WHERE "ambulance_users"."authentication_token" = $1 LIMIT $2[0m  [["authentication_token", "L7rJmbsnnYMnF5ZERqYKKS9NFm0ExBKTQGhWbqN87lD1E9KQokCKb0ETFRg1ZYQTpLE5AlsGp3TrfkKJsAA77g=="], ["LIMIT", 1]]
+Completed 201 Created in 504ms (Views: 6.7ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/api/v1/sessions/?email=a@a.com&password=[FILTERED]" for 127.0.0.1 at 2016-09-19 23:52:57 +0500
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"a@a.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Unpermitted parameter: format
+Unpermitted parameter: format
+  [1m[36mAmbulanceUser Load (1.8ms)[0m  [1m[34mSELECT  "ambulance_users".* FROM "ambulance_users" WHERE "ambulance_users"."email" = $1 LIMIT $2[0m  [["email", "a@a.com"], ["LIMIT", 1]]
+  [1m[36mAmbulanceUser Load (1.1ms)[0m  [1m[34mSELECT  "ambulance_users".* FROM "ambulance_users" WHERE "ambulance_users"."authentication_token" = $1 LIMIT $2[0m  [["authentication_token", "RWleXzhda7C3sdDYKKg7UTkSkcZM4X+04mT8s0BVqAnYQktS47YnQ/NGQdySKct5eAxL43aZjlU3y0keWVacAg=="], ["LIMIT", 1]]
+Completed 201 Created in 421ms (Views: 0.8ms | ActiveRecord: 2.9ms)
+
+
+[5269] - Gracefully shutting down workers...
+[5269] === puma shutdown: 2016-09-19 23:54:52 +0500 ===
+[5269] - Goodbye!
+Exiting
+=== puma startup: 2016-09-19 23:55:40 +0500 ===
+[6394] * Starting control server on unix:///tmp/puma-status-1474311340391-6394
+[6394] - Gracefully shutting down workers...
+[7882] Early termination of worker
+[6394] === puma shutdown: 2016-09-19 23:59:01 +0500 ===
+[6394] - Goodbye!
+Exiting
