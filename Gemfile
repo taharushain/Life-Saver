@@ -18,7 +18,7 @@ gem 'redis-throttle', git: 'git://github.com/lelylan/redis-throttle.git'
 # gem 'rails', '4.2.7'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
-
+gem 'geocoder'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

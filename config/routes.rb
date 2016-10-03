@@ -62,11 +62,14 @@ Rails.application.routes.draw do
   # API routes path
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-    	post "/sessions/driver.json" => "sessions#create", :as => "sessions_create"
+    	# post "/sessions/driver.json" => "sessions#create", :as => "sessions_create"
+      get "/hospitals" => "ambulance_users#get_nearby_hospitals"
+
       resources :sessions, only: [:create, :destroy]
       resources :ambulance_users, only: [:show]
       resources :requests, only: [:index, :create, :show, :update, :destroy]
       resources :request_details, only: [:index, :create, :show, :update, :destroy]
+
     end
   end  
 

@@ -7,4 +7,8 @@ class Hospital < ApplicationRecord
 
 	has_attached_file :logo, styles: { :medium => "640x" }
 	validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
+
+	geocoded_by :address
+	after_validation :geocode, :if => :address_changed?
+
 end

@@ -86,6 +86,7 @@ GEM
     execjs (2.7.0)
     font-awesome-rails (4.6.3.1)
       railties (>= 3.2, < 5.1)
+    geocoder (1.4.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hiredis (0.6.1)
@@ -203,6 +204,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   font-awesome-rails
+  geocoder
   jquery-rails
   paperclip (~> 5.0.0)
   pg
