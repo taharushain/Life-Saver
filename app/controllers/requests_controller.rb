@@ -4,11 +4,11 @@ class RequestsController < ApplicationController
 	before_action :set_request_detail, only: [:show, :update_details]
 
 	def index  
-		@requests = Request.where(:hospital_id => current_manager.hospital_id, :completed => false)
+		@requests = Request.where(:hospital_id => current_manager.hospital_id, :accepted => false).reverse_order
 	end
 
 	def history
-		@requests = Request.where(:hospital_id => current_manager.hospital_id, :completed => true)
+		@requests = Request.where(:hospital_id => current_manager.hospital_id, :completed => true).reverse_order
 	end
 
 	def show

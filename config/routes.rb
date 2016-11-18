@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get "/log_in" => "manager_sessions#new", :as => "manager_log_in"
   get "/super_users/managers/add" => "managers#new", :as => :manager_add
   post "/super_users/managers/add" => "managers#create"
-  get "/" => "managers#index", :as => "root"
+  get "/beds" => "managers#index", :as => "manager_beds"
 
 
   get "/super_users/beds" => "beds#index", :as => :beds
@@ -40,7 +40,8 @@ Rails.application.routes.draw do
   # put "/super_users/beds/:id/" => "beds#update"
   # delete "/super_users/beds/:id/" => "beds#destroy"
 
-  get "/requests" => "requests#index", :as => :requests
+  # get "/requests" => "requests#index", :as => :requests
+  get "/" => "requests#index", :as => "root"
   get "/requests/:id" => "requests#show", :as => :request_show
   get "/history" => "requests#history", :as => :request_history
   patch "/requests/:id" => "requests#update"

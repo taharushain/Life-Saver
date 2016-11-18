@@ -33,12 +33,13 @@
 		<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav side-nav">
+				
 				<li class="active">
-					<a href="<%= root_path %>"><i class="fa fa-fw fa-edit"></i> Beds</a>
-				</li>
-				<li>
-					<a href='<%= requests_path %>' ><i class="fa fa-fw fa-bar-chart-o"></i> Patient Requests</a>
+					<a href='<%= root_path %>' ><i class="fa fa-fw fa-bar-chart-o"></i> Patient Requests</a>
 
+				</li>
+				<li >
+					<a href="<%= manager_beds_path %>"><i class="fa fa-fw fa-edit"></i> Beds</a>
 				</li>
 				<li>
 					<a href='<%= request_history_path %>' ><i class="fa fa-fw fa-history"></i> Requests History</a>

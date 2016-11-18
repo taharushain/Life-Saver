@@ -1,66 +1,47 @@
-<% @requests.each_slice(4) do |slice| %>
-<div class="row">
-	<% slice.each do |request| -%>
-	<% if  request.accepted==true%>
-	<div class="col-md-3">
-		<div class="panel panel-green">
-			<div class="panel-heading">
-				<div class="row">
-					<div class="col-md-12">
-						<i class="fa fa-tasks"> </i><span> Incoming Request # <%= request.id %></span>
+<div id="request-holder">
+	<% @requests.each_slice(4) do |slice| %>
+	<div class="row">
+		<% slice.each do |request| -%>
+		<% if  request.accepted==true%>
+		<div class="col-md-3">
+			<div class="panel panel-green">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-md-12">
+							<i class="fa fa-tasks"> </i><span> Incoming Request # <%= request.id %></span>
+						</div>
 					</div>
 				</div>
+				<a href="<%= request_show_path request %>">
+					<div class="panel-footer">
+						<span class="pull-left">Accepted</span>
+						<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+						<div class="clearfix"></div>
+					</div>
+				</a>
 			</div>
-			<a href="<%= request_show_path request %>">
-				<div class="panel-footer">
-					<span class="pull-left">Accepted</span>
-					<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-					<div class="clearfix"></div>
-				</div>
-			</a>
 		</div>
+		<% else%>
+		<div class="col-md-3">
+			<div class="panel panel-red">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-sm-12">
+							<i class="fa fa-support"> </i><span> Incoming Request # <%= request.id %></span>
+						</div>
+					</div>
+				</div>
+				<a href="<%= request_show_path request %>">
+					<div class="panel-footer">
+						<span class="pull-left">Pending</span>
+						<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+						<div class="clearfix"></div>
+					</div>
+				</a>
+			</div>
+		</div>		
+		<% end %>
+		<% end -%>
 	</div>
-	<% else%>
-	<div class="col-md-3">
-		<div class="panel panel-red">
-			<div class="panel-heading">
-				<div class="row">
-					<div class="col-sm-12">
-						<i class="fa fa-support"> </i><span> Incoming Request # <%= request.id %></span>
-					</div>
-				</div>
-			</div>
-			<a href="<%= request_show_path request %>">
-				<div class="panel-footer">
-					<span class="pull-left">Pending</span>
-					<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-					<div class="clearfix"></div>
-				</div>
-			</a>
-		</div>
-	</div>		
-	<% end %>
 	<% end -%>
-</div>
-<% end -%>
-
-<div class="row col-md-8 col-md-offset-2">
-	<h1> Incoming Requests </h1>
-	<h2> <%= current_manager.id %> </h2>
-	<h2> <%= Hospital.find(current_manager.hospital_id).id %> </h2>
-
-	<div class="panel panel-default">
-		<% @hospital = Hospital.find(current_manager.hospital_id) %>
-		<% if @hospital.requests.any? %>
-		<div class="panel-body" id="requests">
-			<% @hospital.requests.each do |request|%>
-			<div class="row text-center"><p>Request ID: <%= request.id%></p></div>
-			<% end %>
-		</div>
-		<%else%>
-		<div class="panel-body hidden" id="requests">
-		</div>
-		<%end%>
-	</div>
-
 </div>
