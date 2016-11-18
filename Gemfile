@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '>= 5.0.0.rc2', '< 5.1'
+gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
 # gem 'activerecord-session_store'
 
@@ -10,12 +10,15 @@ gem 'simple_form'
 gem "paperclip", "~> 5.0.0"
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
+gem 'puma', '~> 3.0'
+
 # gem 'responders', '~> 2.0'
 
 gem 'redis-throttle', git: 'git://github.com/lelylan/redis-throttle.git'
+gem 'redis', '~> 3.0'
+gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-# gem 'rails', '4.2.7'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 gem 'geocoder'
@@ -25,6 +28,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
+gem 'actioncable', '~> 5.0', '>= 5.0.0.1'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -53,3 +58,5 @@ group :development do
   gem 'unicorn'
 
 end
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

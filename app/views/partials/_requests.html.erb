@@ -43,3 +43,24 @@
 	<% end -%>
 </div>
 <% end -%>
+
+<div class="row col-md-8 col-md-offset-2">
+	<h1> Incoming Requests </h1>
+	<h2> <%= current_manager.id %> </h2>
+	<h2> <%= Hospital.find(current_manager.hospital_id).id %> </h2>
+
+	<div class="panel panel-default">
+		<% @hospital = Hospital.find(current_manager.hospital_id) %>
+		<% if @hospital.requests.any? %>
+		<div class="panel-body" id="requests">
+			<% @hospital.requests.each do |request|%>
+			<div class="row text-center"><p>Request ID: <%= request.id%></p></div>
+			<% end %>
+		</div>
+		<%else%>
+		<div class="panel-body hidden" id="requests">
+		</div>
+		<%end%>
+	</div>
+
+</div>

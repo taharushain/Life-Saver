@@ -44,6 +44,8 @@ class HospitalsController < ApplicationController
 
 
 	def destroy
+		@hospital.logo = nil
+		@hospital.save
 		@hospital.destroy
 		flash[:success] = "Hospital has been deleted."
 

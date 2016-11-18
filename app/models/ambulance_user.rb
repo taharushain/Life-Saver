@@ -4,7 +4,7 @@ class AmbulanceUser < ApplicationRecord
 
 	attr_accessor :password
 	before_save :encrypt_password
-	# has_many :requests
+	has_many :requests
 
 	before_create :generate_authentication_token
 

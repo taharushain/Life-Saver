@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
 
   get "/admins/log_out" => "admin_sessions#destroy", :as => "log_out"
   get "/admins/log_in" => "admin_sessions#new", :as => "log_in"
@@ -64,6 +66,7 @@ Rails.application.routes.draw do
     namespace :v1 do
     	# post "/sessions/driver.json" => "sessions#create", :as => "sessions_create"
       get "/hospitals" => "ambulance_users#get_nearby_hospitals"
+      # post "/request_hospital" => "ambulance_users#send_request"
 
       resources :sessions, only: [:create, :destroy]
       resources :ambulance_users, only: [:show]

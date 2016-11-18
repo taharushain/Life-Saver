@@ -9706,3 +9706,4 @@
 	from /home/trushain/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/commands.rb:18:in `<top (required)>'
 	from bin/rails:4:in `require'
 	from bin/rails:4:in `<main>'
+=== puma startup: 2016-11-18 23:06:36 +0500 ===

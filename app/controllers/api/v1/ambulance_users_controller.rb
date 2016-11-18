@@ -38,9 +38,13 @@ class Api::V1::AmbulanceUsersController < Api::V1::BaseController
       )
   end
 
+  
+
   def get_nearby_hospitals_params
     params.permit(:authentication_token, :radius, :latitude, :longitude)
   end
+
+  
 
  #  def index
  #  	# ambulance_users = AmbulanceUser.all

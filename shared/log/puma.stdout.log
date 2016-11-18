@@ -398,3 +398,63 @@ Exiting
 [6394] === puma shutdown: 2016-09-19 23:59:01 +0500 ===
 [6394] - Goodbye!
 Exiting
+=== puma startup: 2016-11-18 23:06:36 +0500 ===
+[2554] * Starting control server on unix:///tmp/puma-status-1479492396661-2554
+[2554] - Worker 0 (pid: 2600) booted, phase: 0
+Started GET "/requests" for 127.0.0.1 at 2016-11-18 23:06:51 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:RequestsController> at /home/taharushain/Desktop/Desktop Backup/ruby/LifeSaver/app/controllers/requests_controller.rb:2)
+Processing by RequestsController#index as HTML
+  [1m[36mManager Load (2.2ms)[0m  [1m[34mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering requests/index.html.erb within layouts/application
+  Rendered partials/_manager_nav.html.erb (33.5ms)
+  Rendered partials/_alerts.html.erb (3.9ms)
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "requests" WHERE "requests"."hospital_id" = $1 AND "requests"."completed" = $2[0m  [["hospital_id", 4], ["completed", false]]
+  [1m[36mRequest Load (1.7ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."hospital_id" = $1 AND "requests"."completed" = $2[0m  [["hospital_id", 4], ["completed", false]]
+  [1m[36mHospital Load (1.6ms)[0m  [1m[34mSELECT  "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mRequest Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "requests" WHERE "requests"."hospital_id" = $1 LIMIT $2[0m  [["hospital_id", 4], ["LIMIT", 1]]
+  [1m[36mRequest Load (1.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."hospital_id" = $1[0m  [["hospital_id", 4]]
+  Rendered partials/_requests.html.erb (383.3ms)
+  Rendered requests/index.html.erb within layouts/application (439.5ms)
+  Rendered partials/_stylesheets.html.erb (1.3ms)
+  Rendered partials/_scripts.html.erb (1.0ms)
+Completed 200 OK in 1972ms (Views: 1723.5ms | ActiveRecord: 52.4ms)
+
+
+Started POST "/api/v1/requests?hospital_id=4&ambulance_user_id=1" for 127.0.0.1 at 2016-11-18 23:07:02 +0500
+Processing by Api::V1::RequestsController#create as JSON
+  Parameters: {"hospital_id"=>"4", "ambulance_user_id"=>"1"}
+Can't verify CSRF token authenticity.
+Unpermitted parameter: format
+Unpermitted parameter: format
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "requests" ("hospital_id", "ambulance_user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["hospital_id", 4], ["ambulance_user_id", 1], ["created_at", 2016-11-18 18:07:02 UTC], ["updated_at", 2016-11-18 18:07:02 UTC]]
+  [1m[35m (34.4ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to requests: {:request_id=>13, :hospital_id=>4, :ambulance_user_id=>1}
+Completed 200 OK in 97ms (ActiveRecord: 36.9ms)
+
+
+Started GET "/requests" for 127.0.0.1 at 2016-11-18 23:07:19 +0500
+Processing by RequestsController#index as HTML
+  [1m[36mManager Load (1.3ms)[0m  [1m[34mSELECT  "managers".* FROM "managers" WHERE "managers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering requests/index.html.erb within layouts/application
+  Rendered partials/_manager_nav.html.erb (5.5ms)
+  Rendered partials/_alerts.html.erb (1.9ms)
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "requests" WHERE "requests"."hospital_id" = $1 AND "requests"."completed" = $2[0m  [["hospital_id", 4], ["completed", false]]
+  [1m[36mRequest Load (2.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."hospital_id" = $1 AND "requests"."completed" = $2[0m  [["hospital_id", 4], ["completed", false]]
+  [1m[36mHospital Load (1.3ms)[0m  [1m[34mSELECT  "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mRequest Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "requests" WHERE "requests"."hospital_id" = $1 LIMIT $2[0m  [["hospital_id", 4], ["LIMIT", 1]]
+  [1m[36mRequest Load (2.9ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."hospital_id" = $1[0m  [["hospital_id", 4]]
+  Rendered partials/_requests.html.erb (39.9ms)
+  Rendered requests/index.html.erb within layouts/application (58.3ms)
+  Rendered partials/_stylesheets.html.erb (1.3ms)
+  Rendered partials/_scripts.html.erb (1.1ms)
+Completed 200 OK in 540ms (Views: 518.7ms | ActiveRecord: 11.2ms)
+
+
+[2554] - Gracefully shutting down workers...
+[2554] === puma shutdown: 2016-11-18 23:07:30 +0500 ===
+[2554] - Goodbye!
+Exiting
