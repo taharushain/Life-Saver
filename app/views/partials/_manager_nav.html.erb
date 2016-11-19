@@ -35,16 +35,25 @@
 			<ul class="nav navbar-nav side-nav">
 				
 				<li class="active">
-					<a href='<%= root_path %>' ><i class="fa fa-fw fa-bar-chart-o"></i> Patient Requests</a>
+					<a href='<%= root_path %>' ><i class="fa fa-fw fa-bar-chart-o"></i> Incoming Requests</a>
+
+				</li>
+				<li class="">
+					<a href='<%= requests_accepted_path %>' ><i class="fa fa-fw fa-bar-chart-o"></i> Accepted Requests</a>
+
+				</li>
+				<li class="">
+					<a href='<%= requests_completed_path %>' ><i class="fa fa-fw fa-bar-chart-o"></i> Completed Requests</a>
+
+				</li>
+				<li class="">
+					<a href='<%= requests_received_path %>' ><i class="fa fa-fw fa-bar-chart-o"></i> Data Received</a>
 
 				</li>
 				<li >
 					<a href="<%= manager_beds_path %>"><i class="fa fa-fw fa-edit"></i> Beds</a>
 				</li>
-				<li>
-					<a href='<%= request_history_path %>' ><i class="fa fa-fw fa-history"></i> Requests History</a>
-
-				</li>			
+							
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->

@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-	before_filter :authenticate_manager_user, :only => [:index]
+	before_filter :authenticate_manager_user
 	before_action :set_request, only: [:show, :edit, :update, :destroy, :update_details]
 	before_action :set_request_detail, only: [:show, :update_details]
 
@@ -7,9 +7,23 @@ class RequestsController < ApplicationController
 		@requests = Request.where(:hospital_id => current_manager.hospital_id, :accepted => false).reverse_order
 	end
 
-	def history
+	def received
+		@requests = Request.where(:hospital_id => current_manager.hospital_id, 
+			:data_received => true,
+			:completed => false).reverse_order
+	end
+
+	def accepted
+		@requests = Request.where(:hospital_id => current_manager.hospital_id, 
+			:accepted => true,
+			:completed => false, 
+			:data_received => false).reverse_order		
+	end
+
+	def completed
 		@requests = Request.where(:hospital_id => current_manager.hospital_id, :completed => true).reverse_order
 	end
+
 
 	def show
 	end
@@ -50,6 +64,6 @@ class RequestsController < ApplicationController
 	end
 
 	def set_request_detail
-		@request_detail = RequestDetail.where(:request_id => @request.id).order("created_at DESC").find(1)
+		@request_detail = RequestDetail.where(:request_id => @request.id).order("created_at DESC").first
 	end
 end

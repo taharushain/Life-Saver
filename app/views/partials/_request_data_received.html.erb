@@ -1,0 +1,28 @@
+<div id="request-data-received-holder">
+	<% @requests.each_slice(4) do |slice| %>
+	<div class="row">
+		<% slice.each do |request| -%>
+		<% if  request.data_received==true%>
+		<div class="col-md-3">
+			<div class="panel panel-green">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-md-12">
+							<i class="fa fa-tasks"> </i><span> Request # <%= request.id %></span>
+						</div>
+					</div>
+				</div>
+				<a href="<%= request_show_path request %>">
+					<div class="panel-footer">
+						<span class="pull-left">Data Received</span>
+						<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+						<div class="clearfix"></div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<% end -%>
+		<% end -%>
+	</div>
+	<% end -%>
+</div>

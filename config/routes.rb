@@ -42,8 +42,12 @@ Rails.application.routes.draw do
 
   # get "/requests" => "requests#index", :as => :requests
   get "/" => "requests#index", :as => "root"
+  get "/requests/accepted" => "requests#accepted", :as => "requests_accepted"
+  get "/requests/completed" => "requests#completed", :as => "requests_completed"
+  get "/requests/received" => "requests#received", :as => "requests_received"
+
   get "/requests/:id" => "requests#show", :as => :request_show
-  get "/history" => "requests#history", :as => :request_history
+  # get "/history" => "requests#history", :as => :request_history
   patch "/requests/:id" => "requests#update"
   put "/requests/:id" => "requests#update_details"
   
