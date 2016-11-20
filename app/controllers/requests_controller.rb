@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-	before_filter :authenticate_manager_user
+	before_action :authenticate_manager_user
 	before_action :set_request, only: [:show, :edit, :update, :destroy, :update_details]
 	before_action :set_request_detail, only: [:show, :update_details]
 
@@ -24,6 +24,21 @@ class RequestsController < ApplicationController
 		@requests = Request.where(:hospital_id => current_manager.hospital_id, :completed => true).reverse_order
 	end
 
+	def user_location
+		request_id = params[:request_id]
+		hospital = Hospital.find(current_manager.hospital_id)
+		amb_user = AmbulanceUser.find(Request.find(request_id).ambulance_user_id)
+		result = Hash.new
+		result[:hospital_latitude] = hospital.latitude
+		result[:hospital_longitude] = hospital.longitude
+		result[:ambulance_user_latitude] = amb_user.latitude
+		result[:ambulance_user_longitude] = amb_user.longitude
+
+		respond_to do |format|
+			format.html
+			format.json {render json: result }
+		end
+	end
 
 	def show
 	end

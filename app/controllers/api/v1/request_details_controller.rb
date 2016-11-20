@@ -9,6 +9,10 @@ class Api::V1::RequestDetailsController < Api::V1::BaseController
     # @requestDetail = RequestDetail.new(create_params)
 
     if @requestDetail.save
+
+      @req = Request.where(id: create_params[:request_id]).first
+      @req.data_received = true
+      @req.save
       
       ActionCable.server.broadcast 'request_detail_channel',
         request_id: @requestDetail.request_id,

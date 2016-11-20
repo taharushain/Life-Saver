@@ -32,31 +32,44 @@
 
 
 <% else %>
+<h1>Patient Details</h1>
 <div class="row">
-	<div class="col-md-6 text-center"><%= @request_detail.id %></div>
-	<div class="col-md-6 text-center"><%= @request_detail.age %></div>	
-</div>
+	<div class="col-md-6 text-center">
+		<div class="row"><div class="col-md-12"><b>Request ID: </b><span id="req_id"><%= @request_detail.request_id %></span></div></div>
+		<div class="row"><div class="col-md-12"><b>Age: </b><%= @request_detail.age %></div></div>
+		<div class="row"><div class="col-md-12"><b>Gender: </b><%= @request_detail.gender %></div></div>
+		<div class="row"><div class="col-md-12"><b>Blood Pressure: </b><%= @request_detail.blood_pressure %></div></div>
+		<div class="row"><div class="col-md-12"><b>CNIC: </b><%= @request_detail.cnic %></div></div>
 
-<div class="row">
-	<div class="col-md-6 text-center"><%= @request_detail.gender %></div>
-	<div class="col-md-6 text-center"><%= @request_detail.blood_pressure %></div>	
-</div>
+		<div class="row">
 
-<div class="row">
-
-<%= simple_form_for @request_detail, 
-    :url => url_for(:action => 'update_details', :controller => 'requests'),
-    :method => 'put' do |f| %>	
+			<%= simple_form_for @request_detail, 
+			:url => url_for(:action => 'update_details', :controller => 'requests'),
+			:method => 'put' do |f| %>	
 
 
-	<div class="col-md-6 form-group text-center">
+			<div class="form-group text-center">
 
-		<%= f.input :cnic  %>
+				<%= f.input :cnic, placeholder: "Enter CNIC", label: false  %>
+
+			</div>
+			<div class="form-group text-center">
+				<%= f.button :submit, class: 'btn-success' %>
+			</div>
+			<% end %>
+		</div>
 
 	</div>
-	<div class=" col-md-6 form-group text-center">
-		<%= f.button :submit, class: 'btn-success' %>
-	</div>
+	<div class="col-md-6 text-center">
+		<!-- Display Map HERE! -->
+		<div >
+			<div id="map"></div>
+		</div>
+	</div>	
+
+
 	<% end %>
-</div>
-<% end %>
+
+	<%= javascript_tag do %>
+		window.productsURL = "<%= j user_location_path %>";
+	<% end %>

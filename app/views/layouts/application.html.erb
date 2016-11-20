@@ -6,8 +6,9 @@
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 	<%= action_cable_meta_tag %>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCk7-Iu7OseV-lvGETK8cMYhJtMoQ5UkV0&callback=initMap"
+                                       async defer></script>
 
-	<%= render "partials/stylesheets" %>
 </head>
 <body>
 
@@ -15,6 +16,5 @@
 	<%= yield %>
 	<%= render "partials/scripts" %>
 	
-</script>
 </body>
 </html>

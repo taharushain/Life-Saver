@@ -45,6 +45,8 @@ Rails.application.routes.draw do
   get "/requests/accepted" => "requests#accepted", :as => "requests_accepted"
   get "/requests/completed" => "requests#completed", :as => "requests_completed"
   get "/requests/received" => "requests#received", :as => "requests_received"
+  get "/requests/user_location" => "requests#user_location", :as => "user_location"
+
 
   get "/requests/:id" => "requests#show", :as => :request_show
   # get "/history" => "requests#history", :as => :request_history

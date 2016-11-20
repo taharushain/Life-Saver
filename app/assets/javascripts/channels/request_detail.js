@@ -9,7 +9,6 @@ disconnected: function() {
 },
 
 received: function(data) {
-	alert("Request Agai hain");
 	if((data.request_id%4) == 1){
 		return $('#request-data-received-holder').prepend(this.renderNewRequestDetail(data));
 	}
