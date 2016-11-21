@@ -114,28 +114,28 @@ function initMap(result) {
     //         directionsDisplay.setDirections(response);
     //     }
     // });
-    }else{
-        console.log("IN");
-        var ambulance_user_latitude = result["ambulance_user_latitude"]==null?23.23:result["ambulance_user_latitude"];
-        var ambulance_user_longitude = result["ambulance_user_longitude"]==null?69.66:result["ambulance_user_longitude"];
-        console.log(ambulance_user_latitude);
-        console.log(ambulance_user_longitude);
-        var hospital_latitude = result["hospital_latitude"]==null?23.23:result["hospital_latitude"];
-        var hospital_longitude = result["hospital_longitude"]==null?69.66:result["hospital_longitude"];
-        console.log(hospital_latitude);
-        console.log(hospital_longitude);
-        var ambulance_user = {lat: ambulance_user_latitude, lng:  ambulance_user_longitude};
-        var hospital = {lat:  hospital_latitude, lng:  hospital_longitude};
+}else{
+    console.log("IN");
+    var ambulance_user_latitude = result["ambulance_user_latitude"]==null?23.23:result["ambulance_user_latitude"];
+    var ambulance_user_longitude = result["ambulance_user_longitude"]==null?69.66:result["ambulance_user_longitude"];
+    console.log(ambulance_user_latitude);
+    console.log(ambulance_user_longitude);
+    var hospital_latitude = result["hospital_latitude"]==null?23.23:result["hospital_latitude"];
+    var hospital_longitude = result["hospital_longitude"]==null?69.66:result["hospital_longitude"];
+    console.log(hospital_latitude);
+    console.log(hospital_longitude);
+    var ambulance_user = {lat: ambulance_user_latitude, lng:  ambulance_user_longitude};
+    var hospital = {lat:  hospital_latitude, lng:  hospital_longitude};
 
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: ambulance_user,
-            scrollwheel: false,
-            zoom: 7
-        });
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: ambulance_user,
+        scrollwheel: false,
+        zoom: 7
+    });
 
-        var directionsDisplay = new google.maps.DirectionsRenderer({
-            map: map
-        });
+    var directionsDisplay = new google.maps.DirectionsRenderer({
+        map: map
+    });
 
         // Set destination, origin and travel mode.
         var request = {
@@ -152,16 +152,40 @@ function initMap(result) {
             directionsDisplay.setDirections(response);
         }
     });
+
+        function pan() {
+            alert("onCHange");
+            var myLatlng = new google.maps.LatLng($("#ambulance_user_latitude_holder").text(), $("#ambulance_user_longitude_holder").text());
+            map.setCenter(myLatlng);
+
+            var request_update = {
+                destination: hospital,
+                origin: myLatlng,
+                travelMode: 'DRIVING'
+            };
+
+        // Pass the directions request to the directions service.
+        var directionsService_update = new google.maps.DirectionsService();
+        directionsService_update.route(request_update, function(response, status) {
+            if (status == 'OK') {
+            // Display the route on the map.
+            directionsDisplay.setDirections(response);
+        }
+    });
     }
 
+    // $( "#ambulance_user_latitude_holder" ).change(pan);
+    $(document).on('change', '.change_holders', function() {
+    // this == the element that fired the change event
+        alert('Changed question');
+});
 
 }
 
-var updateMap = function(){
 
 }
 
-var myFunc = function() {
+var myFuncFirst = function() {
  $.ajax({
   type:"GET",
   url:"user_location",
@@ -175,9 +199,28 @@ var myFunc = function() {
     	});
 };
 
+var myFuncSecond = function() {
+ $.ajax({
+  type:"GET",
+  url:"user_location",
+  dataType:"json",
+  data: {request_id: $("#req_id").html().trim() },
+  success:function(result){
+    $("#ambulance_user_latitude_holder").html(result["ambulance_user_latitude"]);
+    $("#ambulance_user_longitude_holder").val(result["ambulance_user_longitude"]);
+    $("#hospital_latitude_holder").text(result["hospital_latitude"]);
+    $("#hospital_longitude_holder").text(result["hospital_longitude"]);
+
+                // console.log(result);
+                // alert(result);
+            }
+        });
+};
+
 // $(document).on('turbolinks:load', myFunc); // Turbolinks 5
 $(document).on('turbolinks:load', function () {
-    // will call myFunc every 3 seconds
-    setInterval(myFunc, 3000)
+
+    myFuncFirst();
+    setInterval(myFuncSecond, 1500);
 
 });

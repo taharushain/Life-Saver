@@ -63,6 +63,13 @@
 	<div class="col-md-6 text-center">
 		<!-- Display Map HERE! -->
 		<div >
+		<div id="coordinate-holder">
+				<div class="change_holders" id="ambulance_user_latitude_holder" hidden="true">23.23</div>
+				<div class="change_holders" id="ambulance_user_longitude_holder" hidden="true">69.66</div>
+				<div class="change_holders" id="hospital_latitude_holder" hidden="true">23.23</div>
+				<div class="change_holders" id="hospital_longitude_holder" hidden="true">69.66</div>
+			</div>
+			
 			<div id="map"></div>
 		</div>
 	</div>	
@@ -71,5 +78,5 @@
 	<% end %>
 
 	<%= javascript_tag do %>
-		window.productsURL = "<%= j user_location_path %>";
+	window.productsURL = "<%= j user_location_path %>";
 	<% end %>
