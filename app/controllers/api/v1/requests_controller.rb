@@ -9,12 +9,10 @@ class Api::V1::RequestsController < Api::V1::BaseController
         request_id: @request.id,
         hospital_id: @request.hospital_id,
         ambulance_user_id: @request.ambulance_user_id
-      head :ok
-
-      # render(
-      #   json: @request.to_json,
-      #   status: 201
-      #   )
+      render(
+        json: @request.to_json,
+        status: 201
+        )
     else 
       render(
         json: @request.to_json,
@@ -23,12 +21,31 @@ class Api::V1::RequestsController < Api::V1::BaseController
     end    
   end
 
+  def request_status
+    @request = Request.find(request_status_params[:request_id])
+    if @request_id == nil
+        render(
+          json: @request.to_json,
+          status: 201
+          )
+    else
+        render(
+          json: @request.to_json,
+          status: 201
+          )
+    end
+
+  end
 
 
   private
 
   def create_params
     params.permit(:authentication_token, :hospital_id, :ambulance_user_id)
+  end
+
+  def request_status_params
+    params.permit(:authentication_token, :request_id)
   end
 
   def destroy_params
