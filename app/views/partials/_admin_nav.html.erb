@@ -33,26 +33,26 @@
 		<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav side-nav">
-				<li class="active">
+				<li class="<%= is_active?(admin_home_path) %>">
 					<a href="<%= admin_home_path %>"><i class="fa fa-fw fa-edit"></i> Hospitals</a>
 				</li>
-				<li>
+				<li class="<%= is_active?(new_hospital_path) %>">
 					<a href='<%= new_hospital_path %>' ><i class="fa fa-fw fa-bar-chart-o"></i> Add Hospital</a>
 
 				</li>
-				<li>
+				<li class="<%= is_active?(hospital_super_user_add_path) %>">
 					<a href="<%= hospital_super_user_add_path %>"><i class="fa fa-fw fa-desktop"></i> Add Superusers</a>
 				</li>
-				<li>
+				<li class="<%= is_active?(patients_path) %>">
 					<a href="<%= patients_path %>"><i class="fa fa-fw fa-table"></i> Patients</a>
 				</li>
-				<li>
+				<li class="<%= is_active?(new_patient_path) %>">
 					<a href="<%= new_patient_path %>"><i class="fa fa-fw fa-table"></i> Add Patient</a>
 				</li>
-				<li>
+				<li class="<%= is_active?(ambulance_users_path) %>">
 					<a href="<%= ambulance_users_path %>"><i class="fa fa-fw fa-dashboard"></i> Ambulance Users</a>
 				</li>
-				<li>
+				<li class="<%= is_active?(ambulance_user_add_path) %>">
 					<a href="<%= ambulance_user_add_path %>"><i class="fa fa-fw fa-desktop"></i> Add Ambulance User</a>
 				</li>				
 			</ul>
