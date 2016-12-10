@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120144233) do
+ActiveRecord::Schema.define(version: 20161210211132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20161120144233) do
     t.boolean  "completed",         default: false
     t.boolean  "data_received",     default: false
     t.integer  "bed_id"
+    t.string   "requests_type"
     t.index ["ambulance_user_id"], name: "index_requests_on_ambulance_user_id", using: :btree
     t.index ["bed_id"], name: "index_requests_on_bed_id", using: :btree
     t.index ["hospital_id"], name: "index_requests_on_hospital_id", using: :btree
