@@ -10,7 +10,7 @@ gem 'simple_form'
 gem "paperclip", "~> 5.0.0"
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
-gem 'puma', '~> 3.0'
+# gem 'puma', '~> 3.0'
 
 # gem 'responders', '~> 2.0'
 
