@@ -34,23 +34,23 @@
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav side-nav">
 				
-				<li class="active">
+				<li class="<%= is_active?(root_path) %>">
 					<a href='<%= root_path %>' ><i class="fa fa-fw fa-bar-chart-o"></i> Incoming Requests</a>
 
 				</li>
-				<li class="">
+				<li class="<%= is_active?(requests_accepted_path) %>">
 					<a href='<%= requests_accepted_path %>' ><i class="fa fa-fw fa-bar-chart-o"></i> Accepted Requests</a>
 
 				</li>
-				<li class="">
+				<li class="<%= is_active?(requests_completed_path) %>">
 					<a href='<%= requests_completed_path %>' ><i class="fa fa-fw fa-bar-chart-o"></i> Completed Requests</a>
 
 				</li>
-				<li class="">
+				<li class="<%= is_active?(requests_received_path) %>">
 					<a href='<%= requests_received_path %>' ><i class="fa fa-fw fa-bar-chart-o"></i> Data Received</a>
 
 				</li>
-				<li >
+				<li class="<%= is_active?(manager_beds_path) %>">
 					<a href="<%= manager_beds_path %>"><i class="fa fa-fw fa-edit"></i> Beds</a>
 				</li>
 							
