@@ -48,7 +48,7 @@ class BedsController < ApplicationController
 		@bed.destroy
 		flash[:success] = "Bed has been deleted."
 
-		redirect_to bed_path
+		redirect_to beds_path
 	end
 
 
