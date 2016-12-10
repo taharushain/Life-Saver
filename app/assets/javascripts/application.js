@@ -17,3 +17,11 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree ./channels
+
+$(document).on('turbolinks:load', function () {
+
+    $(".alert").delay(2000).slideUp(500, function(){
+      $(".alert").alert('close');
+  });
+
+});
