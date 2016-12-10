@@ -1,10 +1,10 @@
 <div id="wrapper">
 
 
-	<%= render "partials/super_user_nav" %>
-	<div id="page-wrapper" >
+<%= render "partials/super_user_nav" %>
+	<div id="page-wrapper">
 
-		<div class="container-fluid"  align="center">
+		<div class="container-fluid" align="center">
 
 			<!-- Page Heading -->
 			<div class="row">
@@ -22,12 +22,12 @@
 					<%= render "partials/alerts" %>
 				</div>
 			</div>
-
-			<!-- Contents -->
-			<div class="form-wrapper" style="padding:70px;">
-				<%= render 'partials/beds_form' %>
-			</div>
 			
+			
+			<div class="form-wrapper" style="padding:30px;">
+				<%= render 'partials/bed_show', bed: @bed %>
+			</div>
+
 		</div>
 		<!-- /.container-fluid -->
 

@@ -34,11 +34,11 @@ Rails.application.routes.draw do
   get "/super_users/beds" => "beds#index", :as => :beds
   get "/super_users/beds/add" => "beds#new", :as => :bed_add
   post "/super_users/beds/" => "beds#create"
-  # get "/super_users/beds/:id" => "beds#show", :as => :bed
-  # get "/super_users/beds/:id/edit" => "beds#edit", :as => :bed_edit
-  # patch "/super_users/beds/:id/" => "beds#update"
-  # put "/super_users/beds/:id/" => "beds#update"
-  # delete "/super_users/beds/:id/" => "beds#destroy"
+  get "/super_users/beds/:id" => "beds#show", :as => :bed
+  get "/super_users/beds/:id/edit" => "beds#edit", :as => :bed_edit
+  patch "/super_users/beds/:id/" => "beds#update"
+  put "/super_users/beds/:id/" => "beds#update"
+  delete "/super_users/beds/:id/" => "beds#destroy"
 
   # get "/requests" => "requests#index", :as => :requests
   get "/" => "requests#index", :as => "root"

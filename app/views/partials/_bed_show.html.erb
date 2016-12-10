@@ -1,0 +1,15 @@
+<div class="ambulance_user-wrapper row">
+  <div class="ambulance_user">
+
+    <div class="text-center">
+      <%= @bed.name %>
+    </div>
+
+    <div class="text-center edit-links">
+      <%= link_to "Cancel", hospital_super_user_home_path %>
+      |
+      <%= link_to "Edit Bed", bed_edit_path(@bed) %>
+    </div>
+
+  </div>
+</div>

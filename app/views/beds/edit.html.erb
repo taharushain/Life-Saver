@@ -24,9 +24,18 @@
 			</div>
 
 			<!-- Contents -->
-			<div class="form-wrapper" style="padding:70px;">
-				<%= render 'partials/beds_form' %>
+			<h2>Edit Bed</h2>
+			<div class="form-wrapper" style="padding:30px;">
+				<%= simple_form_for @bed, html: { class: 'form-horizontal', multipart: true } do |f| %>
+				<div class="form-group text-center">
+					<%= f.input :name %>
+				</div>
+				<div class="form-group text-center">
+					<%= f.button :submit, class: 'btn-success' %>
+				</div>
+				<% end %>
 			</div>
+
 			
 		</div>
 		<!-- /.container-fluid -->

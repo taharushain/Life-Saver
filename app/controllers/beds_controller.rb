@@ -21,7 +21,7 @@ class BedsController < ApplicationController
 		if @bed.save
 			flash[:success] = "Your bed has been added!"
 			# redirect_to @bed
-			redirect_to beds_path
+			redirect_to bed_path
 		else
 			flash.now[:alert] = "Your bed couldn't be added!  Please check the form."
 			render 'new'
@@ -36,7 +36,7 @@ class BedsController < ApplicationController
 	def update
 		if @bed.update(bed_params)
 			flash[:success] = "Bed updated."
-			redirect_to beds_path
+			redirect_to bed_path
 		else
 			flash.now[:alert] = "Bed failed to update.  Please check the form."
 			render :edit
@@ -48,7 +48,7 @@ class BedsController < ApplicationController
 		@bed.destroy
 		flash[:success] = "Bed has been deleted."
 
-		redirect_to beds_path
+		redirect_to bed_path
 	end
 
 
@@ -59,6 +59,6 @@ class BedsController < ApplicationController
 	end  
 
 	def set_bed
-		@bed = bed.find(params[:id])
+		@bed = Bed.find(params[:id])
 	end
 end
