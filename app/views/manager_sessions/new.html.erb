@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="jumbotron">
 		<%= render "partials/alerts" %>
-		<h1>Log in</h1>
+		<h2>Manager - Log in</h2>
 
 		<%= form_tag manager_sessions_path do %>
 		<p>
@@ -15,4 +15,12 @@
 		<p class="button"><%= submit_tag "Log in" %></p>
 		<% end %>
 	</div>
+</div>
+
+<div class="text-center">
+ 	<ul id="login-menu">
+		<li><%= link_to 'Admin', log_in_path %></li> |
+		<li><%= link_to 'Superuser', hospital_super_user_log_in_path %></li> |
+		<li><%= link_to 'Manager', manager_log_in_path %></li>
+	</ul>
 </div>

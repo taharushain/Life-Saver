@@ -11,6 +11,9 @@ body {
     background-color: #222;
 }
 
+ul#login-menu li {
+    display:inline;
+}
 
 @media(min-width:768px) {
     body {
