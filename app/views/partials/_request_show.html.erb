@@ -12,7 +12,7 @@
 
 	<div class="form-group text-center">
 
-		<%= f.input :bed_id , as: :radio_buttons, collection: Bed.where(:hospital_id => @request.hospital_id), :required => true, wrapper: :vertical_radio_and_checkboxes %>
+		<%= f.input :bed_id , as: :radio_buttons, collection: Bed.where(:hospital_id => @request.hospital_id, :vacant => true), :required => true, wrapper: :vertical_radio_and_checkboxes %>
 
 	</div>
 	<div class="form-group text-center">

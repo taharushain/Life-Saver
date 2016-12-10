@@ -47,6 +47,9 @@ class RequestsController < ApplicationController
 		@request.accepted = true
 		if @request.update(request_params)
 			flash[:success] = "Request Accepted."
+			@bed = Bed.find(@request.bed_id)
+			@bed.vacant = false
+			@bed.save
 			redirect_to (request_show_path @request)
 		else
 			flash.now[:alert] = "Request failed to accept.  Please check the form."
