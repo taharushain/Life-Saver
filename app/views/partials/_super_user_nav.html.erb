@@ -33,16 +33,16 @@
 		<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav side-nav">
-				<li class="active">
+				<li class="<%= is_active?(hospital_super_user_home_path) %>">
 					<a href="<%= hospital_super_user_home_path %>"><i class="fa fa-fw fa-edit"></i> Managers</a>
 				</li>
-				<li>
+				<li class="<%= is_active?(manager_add_path) %>">
 					<a href='<%= manager_add_path %>' ><i class="fa fa-fw fa-bar-chart-o"></i> Add Manager</a>
 				</li>	
-				<li >
+				<li class="<%= is_active?(beds_path) %>">
 					<a href="<%= beds_path %>"><i class="fa fa-fw fa-edit"></i> Beds</a>
 				</li>
-				<li>
+				<li class="<%= is_active?(bed_add_path) %>">
 					<a href='<%= bed_add_path %>' ><i class="fa fa-fw fa-bar-chart-o"></i> Add Bed</a>
 				</li>			
 			</ul>
