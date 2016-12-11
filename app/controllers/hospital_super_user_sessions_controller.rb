@@ -1,6 +1,6 @@
 class HospitalSuperUserSessionsController < ApplicationController
 	
-	before_filter :save_hospital_super_user_login_state, :only => [:new, :create]
+	before_action :save_hospital_super_user_login_state, :only => [:new, :create]
 
 	def new
 	end

@@ -1,5 +1,5 @@
 class ManagerSessionsController < ApplicationController
-	before_filter :save_manager_login_state, :only => [:new, :create]
+	before_action :save_manager_login_state, :only => [:new, :create]
 
 	def new
 	end

@@ -1,5 +1,5 @@
 class AmbulanceUsersController < ApplicationController
-	before_filter :authenticate_admin_user, :only => [:new, :create, :index, :show, :edit, :update, :destroy]
+	before_action :authenticate_admin_user, :only => [:new, :create, :index, :show, :edit, :update, :destroy]
 	before_action :set_ambulance_user, only: [:show, :edit, :update, :destroy]
 
 

@@ -1,6 +1,6 @@
 class HospitalsController < ApplicationController
 
-	before_filter :authenticate_admin_user, :only => [:index, :show, :new, :create, :edit, :update, :destroy]
+	before_action :authenticate_admin_user, :only => [:index, :show, :new, :create, :edit, :update, :destroy]
 	before_action :set_hospital, only: [:show, :edit, :update, :destroy]
 	
 	def index  

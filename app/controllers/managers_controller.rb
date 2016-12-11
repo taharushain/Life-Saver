@@ -1,7 +1,7 @@
 class ManagersController < ApplicationController
-  before_filter :authenticate_manager_user, :only => [:index]
-  before_filter :authenticate_hospital_super_user, :only => [:new, :create]
-  before_filter :save_manager_login_state, :only => [:new, :create]
+  before_action :authenticate_manager_user, :only => [:index]
+  before_action :authenticate_hospital_super_user, :only => [:new, :create]
+  before_action :save_manager_login_state, :only => [:new, :create]
 
   def index
     @beds = Bed.where(:hospital_id => current_manager.hospital_id)

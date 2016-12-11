@@ -1,6 +1,6 @@
 class AdminSessionsController < ApplicationController
 
-	before_filter :save_admin_login_state, :only => [:new, :create]
+	before_action :save_admin_login_state, :only => [:new, :create]
 
 	def new
 	end
