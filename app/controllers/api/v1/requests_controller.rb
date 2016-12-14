@@ -13,7 +13,8 @@ class Api::V1::RequestsController < Api::V1::BaseController
         blood_pressure: @request.blood_pressure,
         temperature: @request.temperature,
         breathing: @request.breathing,
-        pulse_rate: @request.pulse_rate
+        pulse_rate: @request.pulse_rate,
+        remove: false
 
       render(
         json: @request.to_json,

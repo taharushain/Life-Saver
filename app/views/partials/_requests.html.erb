@@ -1,9 +1,9 @@
-<div id="request-holder">
+<div id="request-holder" hospital_id="<%=current_manager.hospital_id%>">
 	<% @requests.each_slice(4) do |slice| %>
 	<div class="row">
 		<% slice.each do |request| -%>
 		<% if  request.accepted==true%>
-		<div class="col-md-3">
+		<div class="col-md-3" request_id="<%=request.id%>" ambulance_user_id="<%=request.ambulance_user_id%>">
 			<div class="panel panel-green">
 				<div class="panel-heading">
 					<div class="row">
@@ -38,7 +38,7 @@
 			</div>
 		</div>
 		<% else%>
-		<div class="col-md-3">
+		<div class="col-md-3" request_id="<%=request.id%>" ambulance_user_id="<%=request.ambulance_user_id%>" incomming="true">
 			<div class="panel panel-red">
 				<div class="panel-heading">
 					<div class="row">

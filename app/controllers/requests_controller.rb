@@ -1,7 +1,6 @@
 class RequestsController < ApplicationController
 	before_action :authenticate_manager_user
 	before_action :set_request, only: [:show, :edit, :update, :destroy, :update_details]
-	before_action :set_request_detail, only: [:show, :update_details]
 
 	def index  
 		@requests = Request.where(:hospital_id => current_manager.hospital_id, :accepted => false).reverse_order
@@ -50,16 +49,18 @@ class RequestsController < ApplicationController
 			@bed = Bed.find(@request.bed_id)
 			@bed.vacant = false
 			@bed.save
-			redirect_to (request_show_path @request)
-		else
-			flash.now[:alert] = "Request failed to accept.  Please check the form."
-			redirect_to (request_show_path @request)
-		end	
-	end
+			Request.where(:ambulance_user_id => @request.ambulance_user_id, :accepted => false).destroy_all
+			ActionCable.server.broadcast 'request_channel',
+				request_id: @request.id,
+				hospital_id: @request.hospital_id,
+				ambulance_user_id: @request.ambulance_user_id,
+				requests_type: @request.requests_type,
+				blood_pressure: @request.blood_pressure,
+				temperature: @request.temperature,
+				breathing: @request.breathing,
+				pulse_rate: @request.pulse_rate,
+				remove: true
 
-	def update_details
-		if @request_detail.update(request_details_params)
-			flash[:success] = "Request Accepted."
 			redirect_to (request_show_path @request)
 		else
 			flash.now[:alert] = "Request failed to accept.  Please check the form."
@@ -73,15 +74,10 @@ class RequestsController < ApplicationController
 		params.require(:request).permit(:cnic,:bed_id)
 	end 
 
-	def request_details_params  
-		params.require(:request_detail).permit(:cnic)
-	end  
 
 	def set_request
 		@request = Request.find(params[:id])
 	end
 
-	def set_request_detail
-		@request_detail = RequestDetail.where(:request_id => @request.id).order("created_at DESC").first
-	end
+	
 end
