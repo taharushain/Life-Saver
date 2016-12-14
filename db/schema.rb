@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161211131655) do
+ActiveRecord::Schema.define(version: 20161214182856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,7 +94,6 @@ ActiveRecord::Schema.define(version: 20161211131655) do
     t.datetime "updated_at",                        null: false
     t.boolean  "accepted",          default: false
     t.boolean  "completed",         default: false
-    t.boolean  "data_received",     default: false
     t.integer  "bed_id"
     t.string   "requests_type"
     t.string   "blood_pressure"

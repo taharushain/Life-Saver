@@ -44,7 +44,6 @@ Rails.application.routes.draw do
   get "/" => "requests#index", :as => "root"
   get "/requests/accepted" => "requests#accepted", :as => "requests_accepted"
   get "/requests/completed" => "requests#completed", :as => "requests_completed"
-  get "/requests/received" => "requests#received", :as => "requests_received"
   get "/requests/user_location" => "requests#user_location", :as => "user_location"
 
 

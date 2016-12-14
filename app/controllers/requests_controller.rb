@@ -6,17 +6,11 @@ class RequestsController < ApplicationController
 		@requests = Request.where(:hospital_id => current_manager.hospital_id, :accepted => false).reverse_order
 	end
 
-	def received
-		@requests = Request.where(:hospital_id => current_manager.hospital_id, 
-			:data_received => true,
-			:completed => false).reverse_order
-	end
-
+	
 	def accepted
 		@requests = Request.where(:hospital_id => current_manager.hospital_id, 
 			:accepted => true,
-			:completed => false, 
-			:data_received => false).reverse_order		
+			:completed => false).reverse_order		
 	end
 
 	def completed
