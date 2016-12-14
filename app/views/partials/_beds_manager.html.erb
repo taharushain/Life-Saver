@@ -1,0 +1,45 @@
+<% @beds.each_slice(6) do |slice| %>
+<div class="row">
+	<% slice.each do |bed| -%>
+	<% if  bed.vacant==true%>
+	<div class="col-md-2">
+		<div class="panel panel-green">
+			<div class="panel-heading">
+				<div class="row">
+					<div class="">
+						<i class="fa fa-tasks"> </i><span> <%= bed.name %></span>
+					</div>
+				</div>
+			</div>
+			<a href="">
+				<div class="panel-footer">
+					<span class="pull-left">Vacant</span>
+					<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+					<div class="clearfix"></div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<% else%>
+	<div class="col-md-2">
+		<div class="panel panel-red">
+			<div class="panel-heading">
+				<div class="row">
+					<div class="">
+						<i class="fa fa-support"> </i><span> <%= bed.name %></span>
+					</div>
+				</div>
+			</div>
+			<a href="">
+				<div class="panel-footer">
+					<span class="pull-left">Occupied</span>
+					<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+					<div class="clearfix"></div>
+				</div>
+			</a>
+		</div>
+	</div>		
+	<% end %>
+	<% end -%>
+</div>
+<% end -%>
