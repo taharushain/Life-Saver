@@ -14,13 +14,14 @@ received: function(data) {
 
 	if(data.hospital_id == $('#request-holder').attr('hospital_id')){
 		if(data.remove == false){
-			console.log("Remove: false");
-			if((data.request_id%4) == 1){
+			var num_of_reqs_on_view = $("div[incomming='true']").length;
+			console.log("Remove: false, num_of_reqs_on_view="+$("div[incomming='true']").length);
 
+			if((num_of_reqs_on_view%4) == 0){//new
 				return $('#request-holder').prepend(this.renderNewRequest(data));
 			}
 			else{
-
+				//old
 				console.log("chi:"+$('#request-holder').children().length);
 
 				if($('#request-holder').children().length > 0){
@@ -31,8 +32,8 @@ received: function(data) {
 				}
 
 				return $('#request-holder').children().first().prepend(this.renderOldRequest(data));
-
 			}
+
 		}
 	}else{
 		if(data.remove == true){
