@@ -2,3 +2,4 @@
 
 require ::File.expand_path('../config/environment', __FILE__)
 run Rails.application
+ActionCable.server.config.disable_request_forgery_protection = true
