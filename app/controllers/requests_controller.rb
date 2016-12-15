@@ -38,22 +38,25 @@ class RequestsController < ApplicationController
 
 	def update
 		@request.accepted = true
-		if @request.update(request_params)
-			flash[:success] = "Request Accepted."
+		ActiveRecord::Base.transaction do
+			@request.update(request_params)
 			@bed = Bed.find(@request.bed_id)
 			@bed.vacant = false
 			@bed.save
 			Request.where(:ambulance_user_id => @request.ambulance_user_id, :accepted => false).destroy_all
+		end
+		if !@request.errors.any?
+			flash[:success] = "Request Accepted."
 			ActionCable.server.broadcast 'request_channel',
-				request_id: @request.id,
-				hospital_id: @request.hospital_id,
-				ambulance_user_id: @request.ambulance_user_id,
-				requests_type: @request.requests_type,
-				blood_pressure: @request.blood_pressure,
-				temperature: @request.temperature,
-				breathing: @request.breathing,
-				pulse_rate: @request.pulse_rate,
-				remove: true
+			request_id: @request.id,
+			hospital_id: @request.hospital_id,
+			ambulance_user_id: @request.ambulance_user_id,
+			requests_type: @request.requests_type,
+			blood_pressure: @request.blood_pressure,
+			temperature: @request.temperature,
+			breathing: @request.breathing,
+			pulse_rate: @request.pulse_rate,
+			remove: true
 
 			redirect_to (request_show_path @request)
 		else

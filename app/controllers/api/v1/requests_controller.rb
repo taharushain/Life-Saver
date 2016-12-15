@@ -1,62 +1,82 @@
 class Api::V1::RequestsController < Api::V1::BaseController
 
   def create
-    @request = Request.new(hospital_id: create_params[:hospital_id],ambulance_user_id: create_params[:ambulance_user_id], requests_type: create_params[:requests_type], blood_pressure: create_params[:blood_pressure], temperature: create_params[:temperature], breathing: create_params[:breathing], pulse_rate: create_params[:pulse_rate])
 
-    if @request.save
+    @hospitals = nil
+    @results = nil
+
+    if params[:radius].present?
+      # @hospitals = Hospital.near([params[:latitude], params[:longitude]], params[:radius])
+      @hospitals = Hospital.near([params[:latitude].to_f, params[:longitude].to_f], params[:radius].to_i)
       
-      ActionCable.server.broadcast 'request_channel',
-        request_id: @request.id,
-        hospital_id: @request.hospital_id,
-        ambulance_user_id: @request.ambulance_user_id,
-        requests_type: @request.requests_type,
-        blood_pressure: @request.blood_pressure,
-        temperature: @request.temperature,
-        breathing: @request.breathing,
-        pulse_rate: @request.pulse_rate,
-        remove: false
-
-      render(
-        json: @request.to_json,
-        status: 201
-        )
-    else 
-      render(
-        json: @request.to_json,
-        status: 401
-        )
-    end    
-  end
-
-  def request_status
-    @request = Request.find(request_status_params[:request_id])
-    if @request_id == nil
-        render(
-          json: @request.to_json,
-          status: 201
-          )
     else
-        render(
-          json: @request.to_json,
-          status: 201
-          )
+      @hospitals = Hospital.all
     end
 
+    @reqArray = Array.new
+
+    @hospitals.each do |hospital|
+      @request = Request.new(hospital_id: hospital.id,ambulance_user_id: params[:ambulance_user_id], requests_type: params[:requests_type], blood_pressure: params[:blood_pressure], temperature: params[:temperature], breathing: params[:breathing], pulse_rate: params[:pulse_rate]).as_json
+      @reqArray.push @request
+    end
+
+    ActiveRecord::Base.transaction do
+      @results = Request.create(@reqArray)
+    end
+
+    @results.each do |result|
+      @new_req = Request.new(result.as_json)
+      ActionCable.server.broadcast 'request_channel',
+      request_id: @new_req.id,
+      hospital_id: @new_req.hospital_id,
+      ambulance_user_id: @new_req.ambulance_user_id,
+      requests_type: @new_req.requests_type,
+      blood_pressure: @new_req.blood_pressure,
+      temperature: @new_req.temperature,
+      breathing: @new_req.breathing,
+      pulse_rate: @new_req.pulse_rate,
+      remove: false
+    end
+
+    render(
+      json: @results.as_json,
+      status: 201
+      )
+
+  rescue ActiveRecord::RecordInvalid => exception
+  # do something with exception here
+end
+
+
+def request_status
+  @request = Request.find(request_status_params[:request_id])
+  if @request_id == nil
+    render(
+      json: @request.to_json,
+      status: 201
+      )
+  else
+    render(
+      json: @request.to_json,
+      status: 201
+      )
   end
 
+end
 
-  private
 
-  def create_params
-    params.permit(:authentication_token, :hospital_id, :ambulance_user_id, :requests_type, :blood_pressure, :temperature, :breathing, :pulse_rate)
-  end
+private
 
-  def request_status_params
-    params.permit(:authentication_token, :request_id)
-  end
+def create_params
+  params.permit(:authentication_token, :ambulance_user_id, :requests_type, :blood_pressure, :temperature, :breathing, :pulse_rate, :radius, :latitude, :longitude)
+end
 
-  def destroy_params
-    params.permit(:authentication_token)
-  end
+def request_status_params
+  params.permit(:authentication_token, :request_id)
+end
+
+def destroy_params
+  params.permit(:authentication_token)
+end
 
 end
