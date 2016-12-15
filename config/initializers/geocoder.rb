@@ -1,5 +1,5 @@
 Geocoder.configure(
-  api_key: ENV['GOOGLE_STATIC_MAPS_API'],
+  # api_key: ENV['GOOGLE_STATIC_MAPS_API'],
   # Geocoding options
    # timeout: 3,                 # geocoding service timeout (secs)
    # lookup: :google,            # name of geocoding service (symbol)
