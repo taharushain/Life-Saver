@@ -27,7 +27,7 @@ class Api::V1::AmbulanceUsersController < Api::V1::BaseController
 
   def get_nearby_hospitals
     if params[:radius].present?
-      @hospitals = Hospital.near([params[:latitude], params[:longitude]], params[:radius])
+      @hospitals = Hospital.near([params[:latitude].to_f, params[:longitude].to_f], params[:radius].to_i)
     else
       @hospitals = Hospital.all
     end
