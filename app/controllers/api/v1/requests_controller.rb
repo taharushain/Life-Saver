@@ -49,18 +49,11 @@ end
 
 
 def request_status
-  @request = Request.find(request_status_params[:request_id])
-  if @request_id == nil
-    render(
-      json: @request.to_json,
-      status: 201
-      )
-  else
-    render(
-      json: @request.to_json,
-      status: 201
-      )
-  end
+  @request = Request.where(ambulance_user_id: request_status_params[:ambulance_user_id], accepted: true, completed: false).first
+  render(
+    json: @request.to_json,
+    status: 201
+    )
 
 end
 
@@ -72,7 +65,7 @@ def create_params
 end
 
 def request_status_params
-  params.permit(:authentication_token, :request_id)
+  params.permit(:authentication_token, :ambulance_user_id)
 end
 
 def destroy_params
