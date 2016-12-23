@@ -37,7 +37,7 @@ class RequestsController < ApplicationController
 	end
 
 	def update_details
-		
+		@request.save
 	end
 
 	def update
