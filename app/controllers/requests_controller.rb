@@ -36,6 +36,10 @@ class RequestsController < ApplicationController
 	def show
 	end
 
+	def update_details
+		
+	end
+
 	def update
 		@request.accepted = true
 		ActiveRecord::Base.transaction do

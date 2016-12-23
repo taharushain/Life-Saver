@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214182856) do
+ActiveRecord::Schema.define(version: 20161223132807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20161214182856) do
     t.string   "temperature"
     t.string   "breathing"
     t.string   "pulse_rate"
+    t.bigint   "cnic"
     t.index ["ambulance_user_id"], name: "index_requests_on_ambulance_user_id", using: :btree
     t.index ["bed_id"], name: "index_requests_on_bed_id", using: :btree
     t.index ["hospital_id"], name: "index_requests_on_hospital_id", using: :btree

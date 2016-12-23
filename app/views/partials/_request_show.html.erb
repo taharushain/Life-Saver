@@ -1,49 +1,17 @@
-<% if @request.accepted==false %>
-<div>
-	<div class="row">
-		<div class="col-md-12 text-center">
-			<h3>
-				Please accept the request
-			</h3>
-		</div>	
-	</div>
-	<div class="text-center"> Request # <%=@request.id%> </div> 
-	<%= simple_form_for @request, url: request_show_path do |f| %>
-
-	<div class="form-group text-center">
-
-		<%= f.input :bed_id , as: :radio_buttons, collection: Bed.where(:hospital_id => @request.hospital_id, :vacant => true), :required => true, wrapper: :vertical_radio_and_checkboxes %>
-
-	</div>
-	<div class="form-group text-center">
-		<%= f.button :submit, class: 'btn-success' %>
-	</div>
-	<% end %>
-</div>
-
-
-
-<% elsif( @request.accepted==true  && @request.data_received == false)%>
-<br>
-<br>
-<h3 class="text-center">Waiting for Patient Data</h3>
-
-
-
-
-<% else %>
 <h1>Patient Details</h1>
 <div class="row">
 	<div class="col-md-6 text-center">
-		<div class="row"><div class="col-md-12"><b>Request ID: </b><span id="req_id"><%= @request_detail.request_id %></span></div></div>
-		<div class="row"><div class="col-md-12"><b>Age: </b><%= @request_detail.age %></div></div>
-		<div class="row"><div class="col-md-12"><b>Gender: </b><%= @request_detail.gender %></div></div>
-		<div class="row"><div class="col-md-12"><b>Blood Pressure: </b><%= @request_detail.blood_pressure %></div></div>
-		<div class="row"><div class="col-md-12"><b>CNIC: </b><%= @request_detail.cnic %></div></div>
+		<div class="row"><div class="col-md-12"><b>Request ID: </b><span id="req_id"><%= @request.id %></span></div></div>
+		<div class="row"><div class="col-md-12"><b>Type: </b><%= @request.requests_type %></div></div>
+		<div class="row"><div class="col-md-12"><b>Temperature: </b><%= @request.temperature %></div></div>
+		<div class="row"><div class="col-md-12"><b>Blood Pressure: </b><%= @request.blood_pressure %></div></div>
+		<div class="row"><div class="col-md-12"><b>Breathing: </b><%= @request.breathing %></div></div>
+		<div class="row"><div class="col-md-12"><b>Pulse Rate: </b><%= @request.pulse_rate %></div></div>
+		<div class="row"><div class="col-md-12"><b>CNIC: </b><%= @request.cnic %></div></div>
 
 		<div class="row">
 
-			<%= simple_form_for @request_detail, 
+			<%= simple_form_for @request, 
 			:url => url_for(:action => 'update_details', :controller => 'requests'),
 			:method => 'put' do |f| %>	
 
@@ -62,8 +30,8 @@
 	</div>
 	<div class="col-md-6 text-center">
 		<!-- Display Map HERE! -->
-		<div >
-		<div id="coordinate-holder">
+		<div>
+			<div id="coordinate-holder">
 				<div class="change_holders" id="ambulance_user_latitude_holder" hidden="true">23.23</div>
 				<div class="change_holders" id="ambulance_user_longitude_holder" hidden="true">69.66</div>
 				<div class="change_holders" id="hospital_latitude_holder" hidden="true">23.23</div>
@@ -73,10 +41,8 @@
 			<div id="map"></div>
 		</div>
 	</div>	
+</div>
+<%= javascript_tag do %>
+window.productsURL = "<%= j user_location_path %>";
+<% end %>
 
-
-	<% end %>
-
-	<%= javascript_tag do %>
-	window.productsURL = "<%= j user_location_path %>";
-	<% end %>
