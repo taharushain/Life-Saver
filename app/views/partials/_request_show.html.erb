@@ -1,3 +1,28 @@
+<% if @request.accepted==false %>
+<div>
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h3>
+				Please accept the request
+			</h3>
+		</div>	
+	</div>
+	<div class="text-center"> Request # <%=@request.id%> </div> 
+	<%= simple_form_for @request, url: request_show_path do |f| %>
+
+	<div class="form-group text-center">
+
+		<%= f.input :bed_id , as: :radio_buttons, collection: Bed.where(:hospital_id => @request.hospital_id, :vacant => true), :required => true, wrapper: :vertical_radio_and_checkboxes %>
+
+	</div>
+	<div class="form-group text-center">
+		<%= f.button :submit, class: 'btn-success' %>
+	</div>
+	<% end %>
+</div>
+
+<% else %>
+
 <h1>Patient Details</h1>
 <div class="row row-spacing">
 	<div class="col-md-4 text-center">
@@ -42,6 +67,9 @@
 		</div>
 	</div>	
 </div>
+<% end %>
+
+
 <%= javascript_tag do %>
 window.productsURL = "<%= j user_location_path %>";
 <% end %>
