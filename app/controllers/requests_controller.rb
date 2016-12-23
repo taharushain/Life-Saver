@@ -37,8 +37,15 @@ class RequestsController < ApplicationController
 	end
 
 	def update_details
-		@request.save
+		if @request.update(cnic_update_param)
+			flash[:success] = "Request updated."
+			render 'show'
+		else
+			flash.now[:alert] = "Request failed to update.  Please check the form."
+			render 'show'
+		end
 	end
+	
 
 	def update
 		@request.accepted = true
@@ -80,5 +87,8 @@ class RequestsController < ApplicationController
 		@request = Request.find(params[:id])
 	end
 
+	def cnic_update_param  
+		params.require(:request).permit(:cnic)
+	end  
 	
 end

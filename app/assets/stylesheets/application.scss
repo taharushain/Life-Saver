@@ -2,6 +2,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.row-spacing{
+    margin-top: 50px;
+}
+
 #map {
   height: 500px;
 }
