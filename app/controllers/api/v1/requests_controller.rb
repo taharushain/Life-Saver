@@ -50,10 +50,17 @@ end
 
 def request_status
   @request = Request.where(ambulance_user_id: request_status_params[:ambulance_user_id], accepted: true, completed: false).first
-  render(
-    json: @request.to_json,
-    status: 201
-    )
+  @hospital = Hospital.find(@request.hospital_id)
+  # render(
+  #   json: @request.to_json,
+  #   status: 201
+  #   )
+
+  render( :json => {:request => @request, 
+    :hospital => @hospital },
+    :status => 201)
+
+
 
 end
 
