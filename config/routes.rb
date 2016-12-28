@@ -73,6 +73,7 @@ Rails.application.routes.draw do
     	# post "/sessions/driver.json" => "sessions#create", :as => "sessions_create"
       get "/hospitals" => "ambulance_users#get_nearby_hospitals"
       get "/request_status" => "requests#request_status"
+      post "/request_complete" => "requests#request_complete"
       # post "/request_hospital" => "ambulance_users#send_request"
 
       resources :sessions, only: [:create, :destroy]

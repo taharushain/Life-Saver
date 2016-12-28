@@ -60,8 +60,17 @@ def request_status
     :hospital => @hospital },
     :status => 201)
 
+end
 
-
+def request_complete
+  @request = Request.where(id: request_complete_params[:request_id], ambulance_user_id: request_complete_params[:ambulance_user_id]).first
+  @request.completed = true
+  if @request.save
+    render(
+    json: @request.to_json,
+    status: 201
+    )
+  end
 end
 
 
@@ -73,6 +82,10 @@ end
 
 def request_status_params
   params.permit(:authentication_token, :ambulance_user_id)
+end
+
+def request_complete_params
+  params.permit(:authentication_token, :ambulance_user_id, :request_id)
 end
 
 def destroy_params
