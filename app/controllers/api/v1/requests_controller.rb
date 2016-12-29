@@ -66,6 +66,9 @@ end
 def request_complete
   @request = Request.where(id: request_complete_params[:request_id], ambulance_user_id: request_complete_params[:ambulance_user_id]).first
   @request.completed = true
+  @bed = Bed.find(@request.bed_id)
+  @bed.vacant = true
+  @bed.save
   if @request.save
     render(
     json: @request.to_json,
