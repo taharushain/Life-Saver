@@ -18,6 +18,22 @@
 						<div class="clearfix"></div>
 					</div>
 					<div class="panel-footer">
+						<span class="pull-left">Critical Condition: <%= if request.critical_condition then 'Yes' else 'No' end %></span>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-footer">
+						<span class="pull-left">ICU Required: <%= if request.critical_condition then 'Yes' else 'No' end %></span>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-footer">
+						<span class="pull-left">CCU Required: <%= if (request.requests_type == "Cardiac arrest" ||request.requests_type == "Heart attack") then 'Yes' else 'No' end %></span>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-footer">
+						<span class="pull-left">Ventilator Required: <%= if request.breathing == "Low" then 'Yes' else 'No' end %></span>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-footer">
 						<span class="pull-left">Temperature: <%=request.temperature%></span>
 						<div class="clearfix"></div>
 					</div>
@@ -50,6 +66,22 @@
 				<a href="<%= request_show_path request %>">
 					<div class="panel-footer">
 						<span class="pull-left">Blood Pressure: <%=request.blood_pressure%></span>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-footer">
+						<span class="pull-left">Critical Condition: <%= if request.critical_condition then 'Yes' else 'No' end %></span>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-footer">
+						<span class="pull-left">ICU Required: <%= if request.critical_condition then 'Yes' else 'No' end %></span>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-footer">
+						<span class="pull-left">CCU Required: <%= if (request.requests_type == "Cardiac arrest" ||request.requests_type == "Heart attack") then 'Yes' else 'No' end %></span>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-footer">
+						<span class="pull-left">Ventilator Required: <%= if request.breathing == "Low" then 'Yes' else 'No' end %></span>
 						<div class="clearfix"></div>
 					</div>
 					<div class="panel-footer">

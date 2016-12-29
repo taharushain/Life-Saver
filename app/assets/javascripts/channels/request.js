@@ -51,9 +51,123 @@ received: function(data) {
 	// return $('#request-holder').prepend(this.renderRequest(data));
 },
 renderNewRequest: function(data) {
-	return "<div class='row'><div class='col-md-3' request_id='"+data.request_id+"' ambulance_user_id='"+data.ambulance_user_id+"' incomming='true'><div class='panel panel-red'><div class='panel-heading'><div class='row'><div class='col-sm-12'><i class='fa fa-support'></i><span> Incoming Request # "+data.request_id+"</span></div></div></div><a href=/requests/"+data.request_id+"><div class='panel-footer'><span class='pull-left'>Blood Pressure: "+data.blood_pressure+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Temperature: "+data.temperature+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Breathing problem: "+data.breathing+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Pulse Rate: "+data.pulse_rate+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Type: "+data.requests_type+"</span><span class='pull-right'><i class='fa fa-arrow-circle-right'></i></span><div class='clearfix'></div></div></a></div></div></div>";
+	
+	var temp = "<div class='row'><div class='col-md-3' request_id='"+
+					data.request_id+
+					"' ambulance_user_id='"+
+					data.ambulance_user_id+
+					"' incomming='true'><div class='panel panel-red'><div class='panel-heading'><div class='row'><div class='col-sm-12'><i class='fa fa-support'></i><span> Incoming Request # "+
+					data.request_id+
+					"</span></div></div></div><a href=/requests/"+
+					data.request_id+">"+
+					"<div class='panel-footer'><span class='pull-left'>Blood Pressure: "+
+					data.blood_pressure+
+					"</span><div class='clearfix'></div></div>";
+
+			temp+="<div class='panel-footer'><span class='pull-left'>Critical Condition: ";
+			if(data.critial_condition == true)
+				temp+="Yes";
+			else
+				temp+="No";
+			temp+="</span><div class='clearfix'></div></div>";
+
+			temp+="<div class='panel-footer'><span class='pull-left'>ICU Required: ";
+			if(data.critial_condition == true)
+				temp+="Yes";
+			else
+				temp+="No";
+			temp+="</span><div class='clearfix'></div></div>";
+
+			temp+="<div class='panel-footer'><span class='pull-left'>CCU Required: ";
+			if(data.requests_type == "Cardiac arrest" || data.requests_type == "Heart attack" )
+				temp+="Yes";
+			else
+				temp+="No";
+			temp+="</span><div class='clearfix'></div></div>";
+
+			temp+="<div class='panel-footer'><span class='pull-left'>Ventilator Required: ";
+			if(data.breathing == "Low")
+				temp+="Yes";
+			else
+				temp+="No";
+			temp+="</span><div class='clearfix'></div></div>";
+
+				temp+="<div class='panel-footer'><span class='pull-left'>Temperature: "+
+					data.temperature+
+					"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Breathing problem: "+
+					data.breathing+
+					"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Pulse Rate: "+
+					data.pulse_rate+
+					"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Type: "+
+					data.requests_type+
+					"</span><span class='pull-right'><i class='fa fa-arrow-circle-right'></i></span><div class='clearfix'></div></div></a></div></div></div>";
+
+
+	return temp;
+
+	//return "<div class='row'><div class='col-md-3' request_id='"+data.request_id+"' ambulance_user_id='"+data.ambulance_user_id+"' incomming='true'><div class='panel panel-red'><div class='panel-heading'><div class='row'><div class='col-sm-12'><i class='fa fa-support'></i><span> Incoming Request # "+data.request_id+"</span></div></div></div><a href=/requests/"+data.request_id+"><div class='panel-footer'><span class='pull-left'>Blood Pressure: "+data.blood_pressure+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Temperature: "+data.temperature+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Breathing problem: "+data.breathing+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Pulse Rate: "+data.pulse_rate+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Type: "+data.requests_type+"</span><span class='pull-right'><i class='fa fa-arrow-circle-right'></i></span><div class='clearfix'></div></div></a></div></div></div>";
 },
 renderOldRequest: function(data) {
-	return "<div class='col-md-3' request_id='"+data.request_id+"' ambulance_user_id='"+data.ambulance_user_id+"' incomming='true'><div class='panel panel-red'><div class='panel-heading'><div class='row'><div class='col-sm-12'><i class='fa fa-support'></i><span> Incoming Request # "+data.request_id+"</span></div></div></div><a href=/requests/"+data.request_id+"><div class='panel-footer'><span class='pull-left'>Blood Pressure: "+data.blood_pressure+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Temperature: "+data.temperature+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Breathing problem: "+data.breathing+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Pulse Rate: "+data.pulse_rate+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Type: "+data.requests_type+"</span><span class='pull-right'><i class='fa fa-arrow-circle-right'></i></span><div class='clearfix'></div></div></a></div></div>";
+
+
+	var temp = "<div class='col-md-3' request_id='"+
+				data.request_id+
+				"' ambulance_user_id='"+
+				data.ambulance_user_id+
+				"' incomming='true'><div class='panel panel-red'><div class='panel-heading'><div class='row'><div class='col-sm-12'><i class='fa fa-support'></i><span> Incoming Request # "+
+				data.request_id+
+				"</span></div></div></div><a href=/requests/"+
+				data.request_id+">"+
+				"<div class='panel-footer'><span class='pull-left'>Blood Pressure: "+
+				data.blood_pressure+
+				"</span><div class='clearfix'></div></div>";
+
+			temp+="<div class='panel-footer'><span class='pull-left'>Critical Condition: ";
+			if(data.critial_condition == true)
+				temp+="Yes";
+			else
+				temp+="No";
+			temp+="</span><div class='clearfix'></div></div>";
+
+			temp+="<div class='panel-footer'><span class='pull-left'>ICU Required: ";
+			if(data.critial_condition == true)
+				temp+="Yes";
+			else
+				temp+="No";
+			temp+="</span><div class='clearfix'></div></div>";
+
+			temp+="<div class='panel-footer'><span class='pull-left'>CCU Required: ";
+			if(data.requests_type == "Cardiac arrest" || data.requests_type == "Heart attack" )
+				temp+="Yes";
+			else
+				temp+="No";
+			temp+="</span><div class='clearfix'></div></div>";
+
+			temp+="<div class='panel-footer'><span class='pull-left'>Ventilator Required: ";
+			if(data.breathing == "Low")
+				temp+="Yes";
+			else
+				temp+="No";
+			temp+="</span><div class='clearfix'></div></div>";
+
+
+			temp+="<div class='panel-footer'><span class='pull-left'>Temperature: "+
+				data.temperature+
+				"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Breathing problem: "+
+				data.breathing+
+				"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Pulse Rate: "+
+				data.pulse_rate+
+				"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Type: "+
+				data.requests_type+
+				"</span><span class='pull-right'><i class='fa fa-arrow-circle-right'></i></span><div class='clearfix'></div></div></a></div></div>";
+
+// <div class='panel-footer'><span class='pull-left'>Blood Pressure: "+
+// 				data.blood_pressure+
+// 				"</span><div class='clearfix'></div></div>
+
+
+	
+	return temp;
+	//return "<div class='col-md-3' request_id='"+data.request_id+"' ambulance_user_id='"+data.ambulance_user_id+"' incomming='true'><div class='panel panel-red'><div class='panel-heading'><div class='row'><div class='col-sm-12'><i class='fa fa-support'></i><span> Incoming Request # "+data.request_id+"</span></div></div></div><a href=/requests/"+data.request_id+"><div class='panel-footer'><span class='pull-left'>Blood Pressure: "+data.blood_pressure+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Temperature: "+data.temperature+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Breathing problem: "+data.breathing+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Pulse Rate: "+data.pulse_rate+"</span><div class='clearfix'></div></div><div class='panel-footer'><span class='pull-left'>Type: "+data.requests_type+"</span><span class='pull-right'><i class='fa fa-arrow-circle-right'></i></span><div class='clearfix'></div></div></a></div></div>";
 }
 });

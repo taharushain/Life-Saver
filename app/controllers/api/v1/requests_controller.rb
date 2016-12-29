@@ -16,7 +16,7 @@ class Api::V1::RequestsController < Api::V1::BaseController
     @reqArray = Array.new
 
     @hospitals.each do |hospital|
-      @request = Request.new(hospital_id: hospital.id,ambulance_user_id: params[:ambulance_user_id], requests_type: params[:requests_type], blood_pressure: params[:blood_pressure], temperature: params[:temperature], breathing: params[:breathing], pulse_rate: params[:pulse_rate]).as_json
+      @request = Request.new(hospital_id: hospital.id,ambulance_user_id: params[:ambulance_user_id], requests_type: params[:requests_type], blood_pressure: params[:blood_pressure], temperature: params[:temperature], breathing: params[:breathing], pulse_rate: params[:pulse_rate], critical_condition: params[:critical_condition]).as_json
       @reqArray.push @request
     end
 
@@ -35,6 +35,7 @@ class Api::V1::RequestsController < Api::V1::BaseController
       temperature: @new_req.temperature,
       breathing: @new_req.breathing,
       pulse_rate: @new_req.pulse_rate,
+      critical_condition: @new_req.critical_condition,
       remove: false
     end
 
@@ -77,7 +78,7 @@ end
 private
 
 def create_params
-  params.permit(:authentication_token, :ambulance_user_id, :requests_type, :blood_pressure, :temperature, :breathing, :pulse_rate, :radius, :latitude, :longitude)
+  params.permit(:authentication_token, :ambulance_user_id, :requests_type, :blood_pressure, :temperature, :breathing, :pulse_rate, :radius, :latitude, :longitude, :critical_condition)
 end
 
 def request_status_params

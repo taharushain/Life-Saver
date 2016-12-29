@@ -67,6 +67,7 @@ class RequestsController < ApplicationController
 			temperature: @request.temperature,
 			breathing: @request.breathing,
 			pulse_rate: @request.pulse_rate,
+			critical_condition: @request.critical_condition,
 			remove: true
 
 			redirect_to (request_show_path @request)

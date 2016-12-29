@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223132807) do
+ActiveRecord::Schema.define(version: 20161229172517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,10 +90,10 @@ ActiveRecord::Schema.define(version: 20161223132807) do
   create_table "requests", force: :cascade do |t|
     t.integer  "hospital_id"
     t.integer  "ambulance_user_id"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.boolean  "accepted",          default: false
-    t.boolean  "completed",         default: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.boolean  "accepted",           default: false
+    t.boolean  "completed",          default: false
     t.integer  "bed_id"
     t.string   "requests_type"
     t.string   "blood_pressure"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20161223132807) do
     t.string   "breathing"
     t.string   "pulse_rate"
     t.bigint   "cnic"
+    t.boolean  "critical_condition", default: false
     t.index ["ambulance_user_id"], name: "index_requests_on_ambulance_user_id", using: :btree
     t.index ["bed_id"], name: "index_requests_on_bed_id", using: :btree
     t.index ["hospital_id"], name: "index_requests_on_hospital_id", using: :btree
