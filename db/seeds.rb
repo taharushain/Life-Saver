@@ -8,11 +8,11 @@
 Admin.create(:email => "a@a.com", :password => "123456", :name => "A for Alpha")
 Admin.create(:email => "b@b.com", :password => "123456", :name => "B for Beta")
 
-aku = Hospital.create(:name => "Aga Khan University Hospital", :logo => File.new(Rails.root+"public/system/hospitals/seed/aga-khan.jpeg"), :address =>"24.8920137,67.0038437")
-patel = Hospital.create(:name => "Patel Hospital", :logo => File.new(Rails.root+"public/system/hospitals/seed/patel.png"), :address =>"24.9349599,67.097212")
-jinnah = Hospital.create(:name => "Jinnah Post Graduate Medical Centre", :logo => File.new(Rails.root+"public/system/hospitals/seed/jpmc.jpg"), :address =>"24.8518039,66.9771635")
-liaquat = Hospital.create(:name => "Liaquat National Hospital", :logo => File.new(Rails.root+"public/system/hospitals/seed/liaquat.jpg"), :address =>"24.8907077,67.0687414")
-ziauddin = Hospital.create(:name => "Ziauddin Hospital", :logo => File.new(Rails.root+"public/system/hospitals/seed/ziauddin.png"), :address =>"24.9240865,66.9751156")
+aku = Hospital.create(:name => "Aga Khan University Hospital", :logo => File.new(Rails.root+"public/system/hospitals/seed/aga-khan.jpeg"), :address =>"24.892040,67.074774")
+patel = Hospital.create(:name => "Patel Hospital", :logo => File.new(Rails.root+"public/system/hospitals/seed/patel.png"), :address =>"24.935018,67.097233")
+jinnah = Hospital.create(:name => "Jinnah Post Graduate Medical Centre", :logo => File.new(Rails.root+"public/system/hospitals/seed/jpmc.jpg"), :address =>"24.851830,67.047215")
+liaquat = Hospital.create(:name => "Liaquat National Hospital", :logo => File.new(Rails.root+"public/system/hospitals/seed/liaquat.jpg"), :address =>"24.891566,67.068119")
+ziauddin = Hospital.create(:name => "Ziauddin Hospital", :logo => File.new(Rails.root+"public/system/hospitals/seed/ziauddin.png"), :address =>"24.924152,67.045124")
 
 AmbulanceUser.create(:email => "a@a.com",:name => "Alpha Driver", :password => "123456", :belongs_to => "Anonymous")
 AmbulanceUser.create(:email => "b@b.com",:name => "Beta Driver", :password => "123456", :belongs_to => "Anonymous")
